@@ -449,4 +449,65 @@ public class CreateShipmentTests extends BasePage {
         var packages = (List) packagesResp;
         System.out.println(packages);
     }
+
+    @Test
+    public void testDocumentType() {
+        logger = extent.createTest("FedEx API - Test Document Type is carrier_label_46", "Verify Document Type is carrier_label_46");
+
+        var fileHelper = new FileHelper();
+        var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var jsonHelper = new JSONHelper();
+
+        System.out.println(payload);
+        var response = given()
+                .contentType(ContentType.JSON)
+                .body(payload)
+                .when()
+                .post();
+        var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
+        System.out.println(responseMap);
+
+    }
+
+    @Test
+    public void testDocumentTypeDockTabFalse() {
+        logger = extent.createTest("FedEx API - Test Document Type is carrier_label_46 when DocTab is false", "Verify Document Type is carrier_label_46 when DocTab is false");
+
+        var fileHelper = new FileHelper();
+        var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var jsonHelper = new JSONHelper();
+
+        payload = jsonHelper.updateJsonValue(payload, "DocumentOptions.Documents[0].DocumentType", "carrier_label_48");
+        System.out.println(payload);
+        var response = given()
+                .contentType(ContentType.JSON)
+                .body(payload)
+                .when()
+                .post();
+        var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
+        System.out.println(responseMap);
+
+    }
+
+    @Test
+    public void testDocumentTypeDockTabTrue() {
+        logger = extent.createTest("FedEx API - Test Document Type is carrier_label_48 when DocTab is true", "Verify Document Type is carrier_label_48 when DocTab is true");
+
+        var fileHelper = new FileHelper();
+        var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var jsonHelper = new JSONHelper();
+
+        payload = jsonHelper.updateJsonValue(payload, "DocumentOptions.Documents[0].DocumentType", "carrier_label_48");
+        payload = jsonHelper.updateJsonValue(payload, "SpecialServices.DocTab", true);
+
+        System.out.println(payload);
+        var response = given()
+                .contentType(ContentType.JSON)
+                .body(payload)
+                .when()
+                .post();
+        var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
+        System.out.println(responseMap);
+
+    }
 }

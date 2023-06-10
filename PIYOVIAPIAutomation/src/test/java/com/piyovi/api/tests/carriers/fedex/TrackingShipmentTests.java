@@ -2,10 +2,10 @@ package com.piyovi.api.tests.carriers.fedex;
 
 import com.piyovi.common.BasePage;
 import com.piyovi.constants.FedExConstants;
-import com.piyovi.util.DateTimeUtil;
+
 import com.piyovi.util.FileHelper;
 import com.piyovi.util.JSONHelper;
-import com.piyovi.util.PropertyReader;
+
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import org.testng.annotations.BeforeClass;

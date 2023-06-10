@@ -277,11 +277,6 @@
         "DocumentType": "generic_ps",
         "DocumentLevel": null,
         "DocumentFileType": "PDF"
-      },
-      {
-        "DocumentType": "carrier_label_48",
-        "DocumentLevel": null,
-        "DocumentFileType": "ZPL"
       }
     ]
   },

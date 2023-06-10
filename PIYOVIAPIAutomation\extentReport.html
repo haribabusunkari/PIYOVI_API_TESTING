@@ -35,7 +35,7 @@
 <a href="#"><span class="badge badge-primary"></span></a>
 </li>
 <li class="m-r-10">
-<a href="#"><span class="badge badge-primary">Jun 10, 2023 01:18:05 pm</span></a>
+<a href="#"><span class="badge badge-primary">Jun 10, 2023 04:09:20 pm</span></a>
 </li>
 </ul>
 </div>
@@ -66,7 +66,7 @@
 <li class="dropdown">
 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-exclamation-circle"></i></a>
 <ul id="status-toggle" class="dropdown-menu dropdown-md p-v-0">
-<a class="dropdown-item" status="fail" href="#"><span>Fail</span><span class="status danger"></span></a>
+<a class="dropdown-item" status="pass" href="#"><span>Pass</span><span class="status success"></span></a>
 <div class="dropdown-divider"></div>
 <a status="clear" class="dropdown-item" href="#"><span>Clear</span><span class="pull-right"><i class="fa fa-close"></i></span></a>
 </ul>
@@ -74,44 +74,30 @@
 </ul>
 </div>    <div class="test-list-wrapper scrollable">
       <ul class="test-list-item">
-        <li class="test-item"  status="fail" test-id="1"
+        <li class="test-item"  status="pass" test-id="1"
           author=""
           tag=""
           device="">
           <div class="test-detail">
-            <p class="name">FedEx API - Test Basic Rate Request</p>
+            <p class="name">FedEx API - Test Package Tracking Number is not null</p>
             <p class="text-sm">
-              <span>13:18:06 pm</span> / <span>30:25:251</span>
-              <span class="badge fail-bg log float-right">Fail</span>
+              <span>16:09:21 pm</span> / <span>30:00:000</span>
+              <span class="badge pass-bg log float-right">Pass</span>
             </p>
           </div>
           <div class="test-contents d-none">
 <div class="detail-head">
 <div class="p-v-10">
 <div class="info">
-<h5 class="test-status text-fail">FedEx API - Test Basic Rate Request</h5>
-<span class='badge badge-success'>06.10.2023 13:18:06</span>
-<span class='badge badge-danger'>06.10.2023 13:18:31</span>
-<span class='badge badge-default'>30:25:251</span>
+<h5 class="test-status text-pass">FedEx API - Test Package Tracking Number is not null</h5>
+<span class='badge badge-success'>06.10.2023 16:09:21</span>
+<span class='badge badge-danger'>06.10.2023 16:09:21</span>
+<span class='badge badge-default'>30:00:000</span>
 &middot; <span class='uri-anchor badge badge-default'>#test-id=1</span>
 </div>
-<div class="m-t-10 m-l-5">Verify Basic Rate Request</div>
+<div class="m-t-10 m-l-5">Verify Package Tracking Number is not null</div>
 </div>
-</div><div class="detail-body mt-4">
-<table class="table table-sm">
-  <thead><tr><th class="status-col">Status</th><th class="timestamp-col">Timestamp</th><th class="details-col">Details</th></tr></thead>
-  <tbody>
-      <tr class="event-row">
-        <td><span class="badge log fail-bg">Fail</span></td>
-        <td>1:18:31 pm</td>
-        <td>
-          200 and 400 are not same for Test Verify Basic Rate Request
-        </td>
-      </tr>
-  </tbody>
-</table>
-</div>
-          </div>
+</div>          </div>
         </li>
       </ul>
     </div>
@@ -127,25 +113,25 @@
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Started</p>
-<h3>Jun 10, 2023 01:18:05 pm</h3>
+<h3>Jun 10, 2023 04:09:20 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0">Ended</p>
-<h3>Jun 10, 2023 01:18:31 pm</h3>
+<h3>Jun 10, 2023 04:09:30 pm</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-pass">Tests Passed</p>
-<h3>0</h3>
+<h3>1</h3>
 </div></div>
 </div>
 <div class="col-md-3">
 <div class="card"><div class="card-body">
 <p class="m-b-0 text-fail">Tests Failed</p>
-<h3>1</h3>
+<h3>0</h3>
 </div></div>
 </div>
 </div>
@@ -161,33 +147,13 @@
 </div>
 </div>
 <div class="card-footer">
-<div><small data-tooltip='0%'>
-<b>0</b> tests passed
+<div><small data-tooltip='100%'>
+<b>1</b> tests passed
 </small>
 </div>
 <div>
-<small data-tooltip='100%'><b>1</b> tests failed,
+<small data-tooltip='0%'><b>0</b> tests failed,
 <b>0</b> skipped, <b data-tooltip='0%'>0</b> others
-</small>
-</div>
-</div>
-</div>
-</div>
-<div class="col-md-6">
-<div class="card">
-<div class="card-header">
-<h6 class="card-title">Log events</h6>
-</div>
-<div class="card-body">
-<div class="">
-<canvas id='events-analysis' width='115' height='90'></canvas>
-</div>
-</div>
-<div class="card-footer">
-<div><small data-tooltip='0%'><b>0</b> events passed</small></div>
-<div>
-<small data-tooltip='100%'><b>1</b> events failed,
-<b data-tooltip='%'>0</b> others
 </small>
 </div>
 </div>
@@ -203,7 +169,7 @@
 </div></div>
 <script>
 var timeline = {
-"FedEx API - Test Basic Rate Request":25.251
+"FedEx API - Test Package Tracking Number is not null":0
 };
 </script>
 <div class="row">
@@ -212,8 +178,8 @@ var timeline = {
 <script>
 var statusGroup = {
 parentCount: 5,
-passParent: 0,
-failParent: 1,
+passParent: 1,
+failParent: 0,
 warningParent: 0,
 skipParent: 0,
 childCount: 5,
@@ -230,7 +196,7 @@ skipGrandChild: 0,
 infoGrandChild: 0,
 eventsCount: 5,
 passEvents: 0,
-failEvents: 1,
+failEvents: 0,
 warningEvents: 0,
 skipEvents: 0,
 infoEvents: 0
