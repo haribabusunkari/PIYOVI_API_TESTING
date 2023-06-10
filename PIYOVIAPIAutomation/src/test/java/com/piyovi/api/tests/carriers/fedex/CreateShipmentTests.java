@@ -20,7 +20,6 @@ import static io.restassured.RestAssured.given;
 
 public class CreateShipmentTests extends BasePage {
 
-    PropertyReader propertyReader = new PropertyReader();
     DateTimeUtil dttmUtil = new DateTimeUtil();
     String shipDtTmFormat = "yyyy-MM-dd'T'HH:mm:ssZ";
     String shipDate = "";

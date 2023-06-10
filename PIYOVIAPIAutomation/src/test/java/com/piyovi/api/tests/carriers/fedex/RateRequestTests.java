@@ -2,10 +2,10 @@ package com.piyovi.api.tests.carriers.fedex;
 
 import com.piyovi.common.BasePage;
 import com.piyovi.constants.FedExConstants;
-import com.piyovi.util.DateTimeUtil;
+
 import com.piyovi.util.FileHelper;
 import com.piyovi.util.JSONHelper;
-import com.piyovi.util.PropertyReader;
+
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import org.testng.annotations.BeforeClass;
@@ -15,19 +15,19 @@ import java.io.IOException;
 
 import static io.restassured.RestAssured.given;
 
-public class TrackingShipmentTests extends BasePage {
+public class RateRequestTests extends BasePage {
 
     @BeforeClass
     public void initialize() throws IOException {
-        RestAssured.baseURI = propertyReader.getApplicationProperty("baseURI") + FedExConstants.TRACKING_SHIPMENT_URL;
+        RestAssured.baseURI = propertyReader.getApplicationProperty("baseURI") + FedExConstants.RATE_REQUEST_URL;
     }
 
     @Test
-    public void testTrackShipmentOK() {
-        logger = extent.createTest("FedEx API - Test Basic Tracking Shipment", "Verify Basic Tracking Shipment");
+    public void testRateRequestOK() {
+        logger = extent.createTest("FedEx API - Test Basic Rate Request", "Verify Basic Rate Request");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(FedExConstants.TRACKING_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(FedExConstants.RATE_REQUEST_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         var response = given()
@@ -36,6 +36,6 @@ public class TrackingShipmentTests extends BasePage {
                 .when()
                 .post();
 
-        verifyTextAndLog("Verify Tracking Shipment", response.statusCode(),200);
+        verifyTextAndLog("Verify Basic Rate Request", response.statusCode(),200);
     }
 }

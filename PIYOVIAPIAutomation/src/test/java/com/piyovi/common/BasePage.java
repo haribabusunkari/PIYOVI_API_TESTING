@@ -1,5 +1,6 @@
 package com.piyovi.common;
 
+import com.piyovi.util.PropertyReader;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -16,6 +17,7 @@ public class BasePage {
 	public ExtentReports extent;
 	public static ExtentTest logger;
 	public ExtentSparkReporter htmlReporter = null;
+	public PropertyReader propertyReader = new PropertyReader();
 	
 	@BeforeSuite
 	public void initialization() {

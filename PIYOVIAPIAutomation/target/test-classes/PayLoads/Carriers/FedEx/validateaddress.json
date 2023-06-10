@@ -1,0 +1,40 @@
+{
+  "carrierEnvironment": "string",
+  "carrierAuthDetails": {
+    "account_Id": "string",
+    "carrierName": "string",
+    "serviceName": "string",
+    "accountNumber": "string",
+    "meterNumber": "string",
+    "userName": "string",
+    "password": "string",
+    "hubId": "string",
+    "distributionCenter": "string",
+    "accountSettings": {
+      "additionalProp1": "string",
+      "additionalProp2": "string",
+      "additionalProp3": "string"
+    }
+  },
+  "requestId": "string",
+  "addressToValidate": {
+    "id": "string",
+    "name": "string",
+    "businessName": "string",
+    "addressLine1": "string",
+    "addressLine2": "string",
+    "addressLine3": "string",
+    "city": "string",
+    "state": "string",
+    "zipcode": "string",
+    "countryCode": "string",
+    "phone": "string",
+    "email": "string",
+    "fax": "string",
+    "vatorTax": "string",
+    "vatorTaxType": "string",
+    "vatorTaxTypeCountryCode": "string",
+    "type": "string",
+    "residential": true
+  }
+}

@@ -12,6 +12,9 @@
         <classes>
             <class name="com.piyovi.api.tests.carriers.fedex.CreateShipmentTests"></class>
             <class name="com.piyovi.api.tests.carriers.fedex.TrackingShipmentTests"></class>
+            <class name="com.piyovi.api.tests.carriers.fedex.RateRequestTests"></class>
+            <class name="com.piyovi.api.tests.carriers.fedex.CancelShipmentTests"></class>
+            <class name="com.piyovi.api.tests.carriers.fedex.ValidateAddressTests"></class>
         </classes>
     </test>
 
