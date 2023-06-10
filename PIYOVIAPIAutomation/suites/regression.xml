@@ -10,7 +10,8 @@
 
     <test name="FedExAPITests">
         <classes>
-            <class name="com.piyovi.api.tests.carriers.FedExAPITests"></class>
+            <class name="com.piyovi.api.tests.carriers.fedex.CreateShipmentTests"></class>
+            <class name="com.piyovi.api.tests.carriers.fedex.TrackingShipmentTests"></class>
         </classes>
     </test>
 

@@ -35,6 +35,22 @@ public class BasePage {
 				break;
 			}
 	}
+
+	public void verifyTextAndLog(String testName, Object actualValue, Object expectedValue) {
+		if(expectedValue.equals(actualValue)) {
+			logger.pass(testName + " Pass");
+		} else {
+			logger.fail(expectedValue + " and " + actualValue + " are not same for Test " + testName);
+		}
+	}
+
+	public void verifyBooleanStatus(String testName, boolean actualValue, boolean expectedValue) {
+		if(expectedValue == actualValue) {
+			logger.pass(testName + " Pass");
+		} else {
+			logger.fail(expectedValue + " and " + actualValue + " are not same for Test " + testName);
+		}
+	}
 			
 	@AfterSuite
 	public void closeAll() {
