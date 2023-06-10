@@ -12,6 +12,7 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 
 import static io.restassured.RestAssured.given;
+import static org.testng.Assert.assertEquals;
 
 public class CancelShipmentTests extends BasePage {
 
@@ -34,6 +35,7 @@ public class CancelShipmentTests extends BasePage {
                 .when()
                 .post();
 
-        verifyTextAndLog("Verify Basic Cancel Shipment", response.statusCode(),200);
+        assertEquals(response.statusCode(), 200);
+        // verifyTextAndLog("Verify Basic Cancel Shipment", response.statusCode(),200);
     }
 }

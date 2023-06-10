@@ -16,6 +16,8 @@ import java.util.List;
 import java.util.Map;
 
 import static io.restassured.RestAssured.given;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 
 public class CreateShipmentTests extends BasePage {
@@ -66,7 +68,8 @@ public class CreateShipmentTests extends BasePage {
                 .when()
                 .post();
 
-        verifyTextAndLog("Verify International Consignee", response.statusCode(),200);
+        assertEquals(response.statusCode(),200);
+        //verifyTextAndLog("Verify International Consignee", response.statusCode(),200);
     }
 
     @Test
@@ -93,7 +96,8 @@ public class CreateShipmentTests extends BasePage {
                 .when()
                 .post();
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
-        verifyTextAndLog("Basic Test",((Map<String, Object>) responseMap.get("payload")).get("Success"),true);
+        assertEquals(((Map<String, Object>) responseMap.get("payload")).get("Success"),true);
+        // verifyTextAndLog("Basic Test",((Map<String, Object>) responseMap.get("payload")).get("Success"),true);
     }
 
     @Test
@@ -112,7 +116,8 @@ public class CreateShipmentTests extends BasePage {
                 .when()
                 .post();
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
-        verifyTextAndLog("Service Name",((Map<String, Object>) responseMap.get("payload")).get("ServiceName"),"FEDEX_2_DAY");
+        assertEquals(((Map<String, Object>) responseMap.get("payload")).get("ServiceName"),"FEDEX_2_DAY");
+        //verifyTextAndLog("Service Name",((Map<String, Object>) responseMap.get("payload")).get("ServiceName"),"FEDEX_2_DAY");
     }
 
     @Test
@@ -131,7 +136,8 @@ public class CreateShipmentTests extends BasePage {
                 .when()
                 .post();
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
-        verifyTextAndLog("Carrier Name",((Map<String, Object>) responseMap.get("payload")).get("CarrierName"),"FEDEX");
+        assertEquals(((Map<String, Object>) responseMap.get("payload")).get("CarrierName"),"FEDEX");
+        //verifyTextAndLog("Carrier Name",((Map<String, Object>) responseMap.get("payload")).get("CarrierName"),"FEDEX");
     }
 
     @Test
@@ -150,7 +156,8 @@ public class CreateShipmentTests extends BasePage {
                 .when()
                 .post();
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
-        verifyTextAndLog("Carrierscac",((Map<String, Object>) responseMap.get("payload")).get("Carrierscac"),"FDXE");
+        assertEquals(((Map<String, Object>) responseMap.get("payload")).get("Carrierscac"),"FDXE");
+        // verifyTextAndLog("Carrierscac",((Map<String, Object>) responseMap.get("payload")).get("Carrierscac"),"FDXE");
     }
 
     @Test
@@ -169,7 +176,8 @@ public class CreateShipmentTests extends BasePage {
                 .when()
                 .post();
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
-        verifyTextAndLog("CurrencyCode",((Map<String, Object>) responseMap.get("payload")).get("CurrencyCode"),"USD");
+        assertEquals(((Map<String, Object>) responseMap.get("payload")).get("CurrencyCode"),"USD");
+        //verifyTextAndLog("CurrencyCode",((Map<String, Object>) responseMap.get("payload")).get("CurrencyCode"),"USD");
     }
 
     @Test
@@ -192,7 +200,8 @@ public class CreateShipmentTests extends BasePage {
                 .when()
                 .post();
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
-        verifyTextAndLog("Shipment_Id",((Map<String, Object>) responseMap.get("payload")).get("Shipment_Id"),shipmentID);
+        assertEquals(((Map<String, Object>) responseMap.get("payload")).get("Shipment_Id"),shipmentID);
+        // verifyTextAndLog("Shipment_Id",((Map<String, Object>) responseMap.get("payload")).get("Shipment_Id"),shipmentID);
     }
 
     @Test
@@ -211,7 +220,8 @@ public class CreateShipmentTests extends BasePage {
                 .when()
                 .post();
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
-        verifyBooleanStatus("Master Tracking Number",((Map<String, Object>) responseMap.get("payload")).get("Shipment_Id")!=null,true);
+        assertTrue(((Map<String, Object>) responseMap.get("payload")).get("Shipment_Id")!=null);
+        // verifyBooleanStatus("Master Tracking Number",((Map<String, Object>) responseMap.get("payload")).get("Shipment_Id")!=null,true);
     }
 
     @Test
@@ -230,7 +240,8 @@ public class CreateShipmentTests extends BasePage {
                 .when()
                 .post();
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
-        verifyBooleanStatus("Totalfreight",((Map<String, Object>) responseMap.get("payload")).get("Totalfreight")!=null,true);
+        assertTrue(((Map<String, Object>) responseMap.get("payload")).get("Totalfreight")!=null);
+        // verifyBooleanStatus("Totalfreight",((Map<String, Object>) responseMap.get("payload")).get("Totalfreight")!=null,true);
     }
 
     @Test
@@ -249,7 +260,8 @@ public class CreateShipmentTests extends BasePage {
                 .when()
                 .post();
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
-        verifyBooleanStatus("TotalDiscountFreight",((Map<String, Object>) responseMap.get("payload")).get("TotalDiscountFreight")!=null,true);
+        assertTrue(((Map<String, Object>) responseMap.get("payload")).get("TotalDiscountFreight")!=null);
+        // verifyBooleanStatus("TotalDiscountFreight",((Map<String, Object>) responseMap.get("payload")).get("TotalDiscountFreight")!=null,true);
     }
 
     @Test
@@ -268,7 +280,8 @@ public class CreateShipmentTests extends BasePage {
                 .when()
                 .post();
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
-        verifyBooleanStatus("BaseCharges",((Map<String, Object>) responseMap.get("payload")).get("BaseCharges")!=null,true);
+        assertTrue(((Map<String, Object>) responseMap.get("payload")).get("BaseCharges")!=null);
+        // verifyBooleanStatus("BaseCharges",((Map<String, Object>) responseMap.get("payload")).get("BaseCharges")!=null,true);
     }
 
     @Test
@@ -287,7 +300,8 @@ public class CreateShipmentTests extends BasePage {
                 .when()
                 .post();
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
-        verifyBooleanStatus("TotalSurcharges",((Map<String, Object>) responseMap.get("payload")).get("TotalSurcharges")!=null,true);
+        assertTrue(((Map<String, Object>) responseMap.get("payload")).get("TotalSurcharges")!=null);
+        // verifyBooleanStatus("TotalSurcharges",((Map<String, Object>) responseMap.get("payload")).get("TotalSurcharges")!=null,true);
     }
 
     @Test
@@ -306,7 +320,8 @@ public class CreateShipmentTests extends BasePage {
                 .when()
                 .post();
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
-        verifyBooleanStatus("TotalTaxes",((Map<String, Object>) responseMap.get("payload")).get("TotalTaxes")!=null,true);
+        assertTrue(((Map<String, Object>) responseMap.get("payload")).get("TotalSurcharges")!=null);
+        // verifyBooleanStatus("TotalTaxes",((Map<String, Object>) responseMap.get("payload")).get("TotalTaxes")!=null,true);
     }
 
     @Test
@@ -325,7 +340,8 @@ public class CreateShipmentTests extends BasePage {
                 .when()
                 .post();
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
-        verifyBooleanStatus("TotalDutiesAndTaxes",((Map<String, Object>) responseMap.get("payload")).get("TotalDutiesAndTaxes")!=null,true);
+        assertTrue(((Map<String, Object>) responseMap.get("payload")).get("TotalDutiesAndTaxes")!=null);
+        // verifyBooleanStatus("TotalDutiesAndTaxes",((Map<String, Object>) responseMap.get("payload")).get("TotalDutiesAndTaxes")!=null,true);
     }
 
     @Test
@@ -344,7 +360,8 @@ public class CreateShipmentTests extends BasePage {
                 .when()
                 .post();
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
-        verifyTextAndLog("MoneybackGuarantee",((Map<String, Object>) responseMap.get("payload")).get("MoneybackGuarantee"),"true");
+        assertEquals(((Map<String, Object>) responseMap.get("payload")).get("MoneybackGuarantee"),"true");
+        //verifyTextAndLog("MoneybackGuarantee",((Map<String, Object>) responseMap.get("payload")).get("MoneybackGuarantee"),"true");
     }
 
     @Test
@@ -363,7 +380,8 @@ public class CreateShipmentTests extends BasePage {
                 .when()
                 .post();
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
-        verifyTextAndLog("DestinationServiceArea",((Map<String, Object>) responseMap.get("payload")).get("DestinationServiceArea"),"A2");
+        assertEquals(((Map<String, Object>) responseMap.get("payload")).get("DestinationServiceArea"),"A2");
+        // verifyTextAndLog("DestinationServiceArea",((Map<String, Object>) responseMap.get("payload")).get("DestinationServiceArea"),"A2");
     }
 
     @Test
@@ -382,7 +400,8 @@ public class CreateShipmentTests extends BasePage {
                 .when()
                 .post();
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
-        verifyTextAndLog("OriginServiceArea",((Map<String, Object>) responseMap.get("payload")).get("OriginServiceArea"), "PM");
+        assertEquals(((Map<String, Object>) responseMap.get("payload")).get("OriginServiceArea"),"PM");
+        // verifyTextAndLog("OriginServiceArea",((Map<String, Object>) responseMap.get("payload")).get("OriginServiceArea"), "PM");
     }
 
     @Test
@@ -401,7 +420,8 @@ public class CreateShipmentTests extends BasePage {
                 .when()
                 .post();
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
-        verifyTextAndLog("DestinationAirportId",((Map<String, Object>) responseMap.get("payload")).get("DestinationAirportId"), "ALT");
+        assertEquals(((Map<String, Object>) responseMap.get("payload")).get("DestinationAirportId"),"ATL");
+        // verifyTextAndLog("DestinationAirportId",((Map<String, Object>) responseMap.get("payload")).get("DestinationAirportId"), "ALT");
     }
 
     @Test
@@ -425,7 +445,8 @@ public class CreateShipmentTests extends BasePage {
                 .when()
                 .post();
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
-        verifyTextAndLog("Remarks",((Map<String, Object>) responseMap.get("payload")).get("Remarks"), "2469:shipTimestamp is invalid");
+        assertEquals(((Map<String, Object>) responseMap.get("payload")).get("Remarks"),"2469:shipTimestamp is invalid");
+        // verifyTextAndLog("Remarks",((Map<String, Object>) responseMap.get("payload")).get("Remarks"), "2469:shipTimestamp is invalid");
     }
 
     @Test

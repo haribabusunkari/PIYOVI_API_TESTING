@@ -14,6 +14,7 @@ import org.testng.annotations.Test;
 import java.io.IOException;
 
 import static io.restassured.RestAssured.given;
+import static org.testng.Assert.assertEquals;
 
 public class RateRequestTests extends BasePage {
 
@@ -36,6 +37,7 @@ public class RateRequestTests extends BasePage {
                 .when()
                 .post();
 
-        verifyTextAndLog("Verify Basic Rate Request", response.statusCode(),200);
+        assertEquals(response.statusCode(), 200);
+        // verifyTextAndLog("Verify Basic Rate Request", response.statusCode(),200);
     }
 }

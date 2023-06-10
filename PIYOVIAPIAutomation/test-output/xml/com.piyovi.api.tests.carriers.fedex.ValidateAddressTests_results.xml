@@ -4,14 +4,20 @@
            failures="1"
            errors="0"
            skipped="0"
-           time="0.000">
+           time="1.943">
   <properties />
-            <testcase name="testRateRequestOK" time="0.000" classname="com.piyovi.api.tests.carriers.fedex.ValidateAddressTests">
-                <failure type="java.lang.NullPointerException"
-                  message="Cannot invoke &quot;com.aventstack.extentreports.ExtentReports.createTest(String, String)&quot; because &quot;this.extent&quot; is null"
+            <testcase name="testRateRequestOK" time="1.943" classname="com.piyovi.api.tests.carriers.fedex.ValidateAddressTests">
+                <failure type="java.lang.AssertionError"
+                  message="expected [200] but found [400]"
               >
-<![CDATA[java.lang.NullPointerException: Cannot invoke "com.aventstack.extentreports.ExtentReports.createTest(String, String)" because "this.extent" is null
-  com.piyovi.api.tests.carriers.fedex.ValidateAddressTests.testRateRequestOK(ValidateAddressTests.java:25)
+<![CDATA[java.lang.AssertionError: expected [200] but found [400]
+  org.testng.Assert.fail(Assert.java:99)
+  org.testng.Assert.failNotEquals(Assert.java:1037)
+  org.testng.Assert.assertEqualsImpl(Assert.java:140)
+  org.testng.Assert.assertEquals(Assert.java:122)
+  org.testng.Assert.assertEquals(Assert.java:907)
+  org.testng.Assert.assertEquals(Assert.java:917)
+  com.piyovi.api.tests.carriers.fedex.ValidateAddressTests.testRateRequestOK(ValidateAddressTests.java:38)
   java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
   java.base/java.lang.reflect.Method.invoke(Method.java:577)
   org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)

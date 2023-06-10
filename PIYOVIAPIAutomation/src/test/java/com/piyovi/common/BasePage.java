@@ -1,5 +1,9 @@
 package com.piyovi.common;
 
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.markuputils.ExtentColor;
+import com.aventstack.extentreports.markuputils.MarkupHelper;
+import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.piyovi.util.PropertyReader;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
@@ -14,28 +18,38 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
 
 public class BasePage {
-	public ExtentReports extent;
+	public static ExtentReports extent;
 	public static ExtentTest logger;
 	public ExtentSparkReporter htmlReporter = null;
 	public PropertyReader propertyReader = new PropertyReader();
 	
 	@BeforeSuite
 	public void initialization() {
-		System.out.println("Before Suite");
-		htmlReporter = new ExtentSparkReporter(System.getProperty("user.dir")+"\\extentReport.html");
+		htmlReporter = new ExtentSparkReporter(System.getProperty("user.dir")+"/extentReport.html");
 		extent = new ExtentReports();
 		extent.attachReporter(htmlReporter);
+
+		htmlReporter.config().setDocumentTitle("PITOVI API Automation Report");
+		htmlReporter.config().setReportName("PITOVI API Automation Report");
+		htmlReporter.config().setTheme(Theme.DARK);
 	}
 	
 	@AfterMethod
 	public void methodEnd(ITestResult testResult, ITestContext context) {
-		switch (testResult.getStatus()) {
-			case ITestResult.SUCCESS:
-				break;
-	
-			case ITestResult.FAILURE:
-				break;
-			}
+		if(testResult.getStatus() == ITestResult.FAILURE)
+		{
+			logger.log(Status.FAIL, MarkupHelper.createLabel(testResult.getName()+" Test case FAILED due to below issues:", ExtentColor.RED));
+			logger.fail(testResult.getThrowable());
+		}
+		else if(testResult.getStatus() == ITestResult.SUCCESS)
+		{
+			logger.log(Status.PASS, MarkupHelper.createLabel(testResult.getName()+" Test Case PASSED", ExtentColor.GREEN));
+		}
+		else
+		{
+			logger.log(Status.SKIP, MarkupHelper.createLabel(testResult.getName()+" Test Case SKIPPED", ExtentColor.ORANGE));
+			logger.skip(testResult.getThrowable());
+		}
 	}
 
 	public void verifyTextAndLog(String testName, Object actualValue, Object expectedValue) {
