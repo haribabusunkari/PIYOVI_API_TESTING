@@ -61,6 +61,7 @@ public class CreateShipmentTests extends BasePage {
         obj.put("AddressType", null);
 
         payload = jsonHelper.updateJsonValue(payload, "Consignee", obj);
+        logger.info("Request Payload " + payload);
 
         var response = given()
                 .contentType(ContentType.JSON)
@@ -68,6 +69,7 @@ public class CreateShipmentTests extends BasePage {
                 .when()
                 .post();
 
+        logger.info("Response JSON " + response.asPrettyString());
         assertEquals(response.statusCode(),200);
         //verifyTextAndLog("Verify International Consignee", response.statusCode(),200);
     }
@@ -79,8 +81,8 @@ public class CreateShipmentTests extends BasePage {
         var fileHelper = new FileHelper();
         var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
-
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
+        logger.info("Request Payload " + payload);
 
         var response = given()
                 .contentType(ContentType.JSON)
@@ -88,6 +90,7 @@ public class CreateShipmentTests extends BasePage {
                 .when()
                 .post();
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
+        logger.info("Response JSON " + response.asPrettyString());
         this.responseParser.parseResponse(responseMap);
         assertEquals(this.responseParser.getSuccess(),true);
         // verifyTextAndLog("Basic Test",((Map<String, Object>) responseMap.get("payload")).get("Success"),true);
@@ -102,12 +105,13 @@ public class CreateShipmentTests extends BasePage {
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
-        System.out.println(payload);
+        logger.info("Request Payload " + payload);
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(payload)
                 .when()
                 .post();
+        logger.info("Response JSON " + response.asPrettyString());
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
         assertEquals(((Map<String, Object>) responseMap.get("payload")).get("ServiceName"),"FEDEX_2_DAY");
@@ -123,12 +127,13 @@ public class CreateShipmentTests extends BasePage {
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
-        System.out.println(payload);
+        logger.info("Request Payload " + payload);
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(payload)
                 .when()
                 .post();
+        logger.info("Response JSON " + response.asPrettyString());
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
         assertEquals(this.responseParser.getCarrierName(),"FEDEX");
@@ -144,13 +149,14 @@ public class CreateShipmentTests extends BasePage {
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
-        System.out.println(payload);
+        logger.info("Request Payload " + payload);
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(payload)
                 .when()
                 .post();
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
+        logger.info("Response JSON " + response.asPrettyString());
         this.responseParser.parseResponse(responseMap);
         assertEquals(this.responseParser.getCarrierscac(),"FDXE");
         // verifyTextAndLog("Carrierscac",((Map<String, Object>) responseMap.get("payload")).get("Carrierscac"),"FDXE");
@@ -165,14 +171,14 @@ public class CreateShipmentTests extends BasePage {
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
-        System.out.println(payload);
+        logger.info("Request Payload " + payload);
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(payload)
                 .when()
                 .post();
+        logger.info("Response JSON " + response.asPrettyString());
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
-        System.out.println(responseMap);
         this.responseParser.parseResponse(responseMap);
         assertEquals(this.responseParser.getCurrencyCode(),"USD");
         //verifyTextAndLog("CurrencyCode",((Map<String, Object>) responseMap.get("payload")).get("CurrencyCode"),"USD");
@@ -191,12 +197,13 @@ public class CreateShipmentTests extends BasePage {
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
         payload = jsonHelper.updateJsonValue(payload, "Shipment_Id", shipmentID);
 
-        System.out.println(payload);
+        logger.info("Request Payload " + payload);
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(payload)
                 .when()
                 .post();
+        logger.info("Response JSON " + response.asPrettyString());
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
         assertEquals(this.responseParser.getShipment_Id(),shipmentID);
@@ -212,12 +219,13 @@ public class CreateShipmentTests extends BasePage {
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
-        System.out.println(payload);
+        logger.info("Request Payload " + payload);
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(payload)
                 .when()
                 .post();
+        logger.info("Response JSON " + response.asPrettyString());
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
         assertTrue(this.responseParser.getShipment_Id()!=null);
@@ -233,12 +241,13 @@ public class CreateShipmentTests extends BasePage {
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
-        System.out.println(payload);
+        logger.info("Request Payload " + payload);
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(payload)
                 .when()
                 .post();
+        logger.info("Response JSON " + response.asPrettyString());
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         System.out.println(responseMap);
         this.responseParser.parseResponse(responseMap);
@@ -255,12 +264,13 @@ public class CreateShipmentTests extends BasePage {
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
-        System.out.println(payload);
+        logger.info("Request Payload " + payload);
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(payload)
                 .when()
                 .post();
+        logger.info("Response JSON " + response.asPrettyString());
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         System.out.println(responseMap);
         this.responseParser.parseResponse(responseMap);
@@ -277,12 +287,13 @@ public class CreateShipmentTests extends BasePage {
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
-        System.out.println(payload);
+        logger.info("Request Payload " + payload);
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(payload)
                 .when()
                 .post();
+        logger.info("Response JSON " + response.asPrettyString());
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
         assertNotNull(this.responseParser.getBaseCharges());
@@ -298,14 +309,14 @@ public class CreateShipmentTests extends BasePage {
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
-        System.out.println(payload);
+        logger.info("Request Payload " + payload);
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(payload)
                 .when()
                 .post();
+        logger.info("Response JSON " + response.asPrettyString());
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
-        System.out.println(responseMap);
         this.responseParser.parseResponse(responseMap);
         assertTrue(this.responseParser.getTotalSurcharges() != 0);
         // verifyBooleanStatus("TotalSurcharges",((Map<String, Object>) responseMap.get("payload")).get("TotalSurcharges")!=null,true);
@@ -320,14 +331,14 @@ public class CreateShipmentTests extends BasePage {
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
-        System.out.println(payload);
+        logger.info("Request Payload " + payload);
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(payload)
                 .when()
                 .post();
+        logger.info("Response JSON " + response.asPrettyString());
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
-        System.out.println(responseMap);
         this.responseParser.parseResponse(responseMap);
         assertTrue(this.responseParser.getTotalTaxes() != 0);
         // verifyBooleanStatus("TotalTaxes",((Map<String, Object>) responseMap.get("payload")).get("TotalTaxes")!=null,true);
@@ -342,14 +353,14 @@ public class CreateShipmentTests extends BasePage {
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
-        System.out.println(payload);
+        logger.info("Request Payload " + payload);
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(payload)
                 .when()
                 .post();
+        logger.info("Response JSON " + response.asPrettyString());
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
-        System.out.println(responseMap);
         this.responseParser.parseResponse(responseMap);
         assertTrue(this.responseParser.getTotalDutiesAndTaxes() != 0);
         // verifyBooleanStatus("TotalDutiesAndTaxes",((Map<String, Object>) responseMap.get("payload")).get("TotalDutiesAndTaxes")!=null,true);
@@ -364,12 +375,13 @@ public class CreateShipmentTests extends BasePage {
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
-        System.out.println(payload);
+        logger.info("Request Payload " + payload);
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(payload)
                 .when()
                 .post();
+        logger.info("Response JSON " + response.asPrettyString());
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
         assertEquals(this.responseParser.getMoneybackGuarantee(),true);
@@ -385,12 +397,13 @@ public class CreateShipmentTests extends BasePage {
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
-        System.out.println(payload);
+        logger.info("Request Payload " + payload);
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(payload)
                 .when()
                 .post();
+        logger.info("Response JSON " + response.asPrettyString());
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
         assertEquals(this.responseParser.getDestinationServiceArea(),"A2");
@@ -406,12 +419,13 @@ public class CreateShipmentTests extends BasePage {
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
-        System.out.println(payload);
+        logger.info("Request Payload " + payload);
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(payload)
                 .when()
                 .post();
+        logger.info("Response JSON " + response.asPrettyString());
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
         assertEquals(this.responseParser.getOriginServiceArea(),"PM");
@@ -427,12 +441,13 @@ public class CreateShipmentTests extends BasePage {
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
-        System.out.println(payload);
+        logger.info("Request Payload " + payload);
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(payload)
                 .when()
                 .post();
+        logger.info("Response JSON " + response.asPrettyString());
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
         assertEquals(this.responseParser.getDestinationAirportId(),"ATL");
@@ -459,6 +474,7 @@ public class CreateShipmentTests extends BasePage {
                 .body(payload)
                 .when()
                 .post();
+        logger.info("Response JSON " + response.asPrettyString());
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
         assertEquals(this.responseParser.getRemarks(),"2469:shipTimestamp is invalid, 7000:Unable to obtain courtesy rates.");
@@ -474,12 +490,13 @@ public class CreateShipmentTests extends BasePage {
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
-        System.out.println(payload);
+        logger.info("Request Payload " + payload);
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(payload)
                 .when()
                 .post();
+        logger.info("Response JSON " + response.asPrettyString());
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
         ArrayList<Packages> packs = this.responseParser.getPackages();
@@ -495,12 +512,13 @@ public class CreateShipmentTests extends BasePage {
         var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
-        System.out.println(payload);
+        logger.info("Request Payload " + payload);
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(payload)
                 .when()
                 .post();
+        logger.info("Response JSON " + response.asPrettyString());
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
         ArrayList<Packages> packs = this.responseParser.getPackages();
@@ -516,12 +534,13 @@ public class CreateShipmentTests extends BasePage {
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "DocumentOptions.Documents[0].DocumentType", "carrier_label_48");
-        System.out.println(payload);
+        logger.info("Request Payload " + payload);
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(payload)
                 .when()
                 .post();
+        logger.info("Response JSON " + response.asPrettyString());
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
         ArrayList<Packages> packs = this.responseParser.getPackages();
@@ -545,6 +564,7 @@ public class CreateShipmentTests extends BasePage {
                 .body(payload)
                 .when()
                 .post();
+        logger.info("Response JSON " + response.asPrettyString());
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
         ArrayList<Packages> packs = this.responseParser.getPackages();
