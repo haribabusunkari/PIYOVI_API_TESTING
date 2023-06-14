@@ -4,7 +4,13 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import com.piyovi.constants.FedExConstants;
+import com.piyovi.util.FileHelper;
+import com.piyovi.util.JSONHelper;
+import com.piyovi.util.PiyoviResponseParser;
 import com.piyovi.util.PropertyReader;
+import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
@@ -15,6 +21,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
+import static io.restassured.RestAssured.given;
 
 
 public class BasePage {
@@ -50,6 +57,20 @@ public class BasePage {
 			logger.log(Status.SKIP, MarkupHelper.createLabel(testResult.getName()+" Test Case SKIPPED", ExtentColor.ORANGE));
 			logger.skip(testResult.getThrowable());
 		}
+	}
+
+	public Response executePostRequest(String payloadFile) {
+		var fileHelper = new FileHelper();
+		var payload = fileHelper.getFile(payloadFile);
+		var jsonHelper = new JSONHelper();
+
+		var response = given()
+				.contentType(ContentType.JSON)
+				.body(payload)
+				.when()
+				.post();
+
+		return response;
 	}
 
 	public void verifyTextAndLog(String testName, Object actualValue, Object expectedValue) {

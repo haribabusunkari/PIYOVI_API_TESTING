@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="FedExAPITests"
+<testsuite name="Rate Request"
            tests="1"
            failures="1"
            errors="0"
            skipped="0"
-           time="1.671">
+           time="1.661">
   <properties />
-            <testcase name="testRateRequestOK" time="1.671" classname="com.piyovi.api.tests.carriers.fedex.RateRequestTests">
+            <testcase name="testRateRequestOK" time="1.661" classname="com.piyovi.api.tests.carriers.fedex.RateRequestTests">
                 <failure type="java.lang.AssertionError"
                   message="expected [200] but found [400]"
               >

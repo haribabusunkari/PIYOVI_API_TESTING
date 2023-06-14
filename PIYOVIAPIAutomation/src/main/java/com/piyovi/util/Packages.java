@@ -2,7 +2,7 @@ package com.piyovi.util;
 
 import java.util.ArrayList;
 
-public class Package {
+public class Packages {
 	private String trackingNumber;
 	private double freight;
 	private double discountfrieght;

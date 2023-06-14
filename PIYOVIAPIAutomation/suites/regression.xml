@@ -1,19 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="PIYOVI API's" allow-return-values="true">
+<suite name="PIYOVI FEDEX API Tests" allow-return-values="true">
 
     <listeners>
         <listener class-name="org.uncommons.reportng.HTMLReporter"/>
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
     </listeners>
 
-    <test name="FedExAPITests">
+    <test name="Create Shipment Tests">
         <classes>
             <class name="com.piyovi.api.tests.carriers.fedex.CreateShipmentTests"></class>
+        </classes>
+    </test>
+    <test name="Tracking Shipment">
+        <classes>
             <class name="com.piyovi.api.tests.carriers.fedex.TrackingShipmentTests"></class>
+        </classes>
+    </test>
+    <test name="Rate Request">
+        <classes>
             <class name="com.piyovi.api.tests.carriers.fedex.RateRequestTests"></class>
+        </classes>
+    </test>
+    <test name="Cancel Shipment">
+        <classes>
             <class name="com.piyovi.api.tests.carriers.fedex.CancelShipmentTests"></class>
+        </classes>
+    </test>
+    <test name="Validate Address">
+        <classes>
             <class name="com.piyovi.api.tests.carriers.fedex.ValidateAddressTests"></class>
         </classes>
     </test>

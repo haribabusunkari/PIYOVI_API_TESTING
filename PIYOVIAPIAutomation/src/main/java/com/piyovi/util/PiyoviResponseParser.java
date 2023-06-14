@@ -32,9 +32,9 @@ public class PiyoviResponseParser {
 	private boolean success;
 	private ArrayList errors;
 	/* Process packages from response packages */
-	private List<Package> pacakgesList;
+	private List<Packages> pacakgesList;
 	
-	public ArrayList getPackages() {
+	public ArrayList<Packages> getPackages() {
 		return Packages;
 	}
 	public void setPackages(ArrayList packages) {
@@ -188,7 +188,6 @@ public class PiyoviResponseParser {
 				 case "payload":
 					 this.setOrginalPayloadFromResp((Map<String, Object>)m.getValue());
 					 break;
-				 
 			 }
 		}
 		 
@@ -265,10 +264,10 @@ public class PiyoviResponseParser {
 	}
 	
 	public void processPackages() {
-		pacakgesList = new ArrayList<Package>();
+		pacakgesList = new ArrayList<Packages>();
 		for(int packageIndex = 0;packageIndex < this.Packages.size();packageIndex++) {
 			 Map<String, Object> packgeResp = (Map<String, Object>) this.Packages.get(packageIndex);
-			 Package packageObj = new Package();
+			 Packages packageObj = new Packages();
 			 for(Map.Entry packageEntry : packgeResp.entrySet()) {
 				 switch(packageEntry.getKey().toString()) {
 					 case "TrackingNumber":
