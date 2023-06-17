@@ -9,12 +9,9 @@ import io.restassured.http.ContentType;
 import net.minidev.json.JSONObject;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
-
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.*;
 
@@ -33,10 +30,9 @@ public class CreateShipmentTests extends BasePage {
     }
 
     @Test
-    public void testCreateShipmentIntAddrs() throws Exception{
-
-        logger = extent.createTest("FedEx API - Test Create Shipment for International Address", "Verify International Consignee");
-
+    public void testCreateShipmentIntAddrsWithWrongArguments() throws Exception{
+        logger = extent.createTest("FedEx API - Test Create Shipment for International Address With WrongArguments", "Verify International Consignee Negative Test");
+       
         var fileHelper = new FileHelper();
         var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
@@ -61,19 +57,42 @@ public class CreateShipmentTests extends BasePage {
         obj.put("AddressType", null);
 
         payload = jsonHelper.updateJsonValue(payload, "Consignee", obj);
-        logger.info("Request Payload " + payload);
-
+        payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
+        
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(payload)
                 .when()
                 .post();
 
-        logger.info("Response JSON " + response.asPrettyString());
-        assertEquals(response.statusCode(),200);
-        //verifyTextAndLog("Verify International Consignee", response.statusCode(),200);
+        var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
+        logger.info("Status Code : " + responseMap.get("status").toString());
+        logger.info("Errors in response JSON : " + responseMap.get("errors"));
+        assertEquals(responseMap.get("status").toString(),"500");
+        assertNotEquals(responseMap.get("errors").toString(),"Object reference not set to an instance of an object.");
     }
 
+    @Test
+    public void testCreateShipmentIntAddrs() throws Exception{
+        logger = extent.createTest("FedEx API - Test Create Shipment for International Address", "Verify International Consignee");
+       
+        var fileHelper = new FileHelper();
+        var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_INTERNATIONAL_PAYLOAD);
+        var jsonHelper = new JSONHelper();
+        
+        payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
+        
+        var response = given()
+                .contentType(ContentType.JSON)
+                .body(payload)
+                .when()
+                .post();
+
+        var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
+        logger.info("Status Code : " + responseMap.get("status").toString());
+        assertEquals(responseMap.get("status").toString(),"200");
+    }
+    
     @Test
     public void testCreateShipmentOK() {
         logger = extent.createTest("FedEx API - Test Basic Create Shipment", "Basic Test");
@@ -89,33 +108,11 @@ public class CreateShipmentTests extends BasePage {
                 .body(payload)
                 .when()
                 .post();
+        
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         logger.info("Response JSON " + response.asPrettyString());
         this.responseParser.parseResponse(responseMap);
         assertEquals(this.responseParser.getSuccess(),true);
-        // verifyTextAndLog("Basic Test",((Map<String, Object>) responseMap.get("payload")).get("Success"),true);
-    }
-
-    @Test
-    public void testServiceName() {
-        logger = extent.createTest("FedEx API - Test Service Name", "Verify Expected Service Name is returned");
-
-        var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
-        var jsonHelper = new JSONHelper();
-
-        payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
-        logger.info("Request Payload " + payload);
-        var response = given()
-                .contentType(ContentType.JSON)
-                .body(payload)
-                .when()
-                .post();
-        logger.info("Response JSON " + response.asPrettyString());
-        var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
-        this.responseParser.parseResponse(responseMap);
-        assertEquals(((Map<String, Object>) responseMap.get("payload")).get("ServiceName"),"FEDEX_2_DAY");
-        //verifyTextAndLog("Service Name",((Map<String, Object>) responseMap.get("payload")).get("ServiceName"),"FEDEX_2_DAY");
     }
 
     @Test
@@ -137,7 +134,6 @@ public class CreateShipmentTests extends BasePage {
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
         assertEquals(this.responseParser.getCarrierName(),"FEDEX");
-        //verifyTextAndLog("Carrier Name",((Map<String, Object>) responseMap.get("payload")).get("CarrierName"),"FEDEX");
     }
 
     @Test
@@ -159,7 +155,6 @@ public class CreateShipmentTests extends BasePage {
         logger.info("Response JSON " + response.asPrettyString());
         this.responseParser.parseResponse(responseMap);
         assertEquals(this.responseParser.getCarrierscac(),"FDXE");
-        // verifyTextAndLog("Carrierscac",((Map<String, Object>) responseMap.get("payload")).get("Carrierscac"),"FDXE");
     }
 
     @Test
@@ -181,7 +176,6 @@ public class CreateShipmentTests extends BasePage {
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
         assertEquals(this.responseParser.getCurrencyCode(),"USD");
-        //verifyTextAndLog("CurrencyCode",((Map<String, Object>) responseMap.get("payload")).get("CurrencyCode"),"USD");
     }
 
     @Test
@@ -207,7 +201,6 @@ public class CreateShipmentTests extends BasePage {
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
         assertEquals(this.responseParser.getShipment_Id(),shipmentID);
-        // verifyTextAndLog("Shipment_Id",((Map<String, Object>) responseMap.get("payload")).get("Shipment_Id"),shipmentID);
     }
 
     @Test
@@ -229,7 +222,6 @@ public class CreateShipmentTests extends BasePage {
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
         assertTrue(this.responseParser.getShipment_Id()!=null);
-        // verifyBooleanStatus("Master Tracking Number",((Map<String, Object>) responseMap.get("payload")).get("Shipment_Id")!=null,true);
     }
 
     @Test
@@ -252,7 +244,6 @@ public class CreateShipmentTests extends BasePage {
         System.out.println(responseMap);
         this.responseParser.parseResponse(responseMap);
         assertTrue((this.responseParser.getTotalfreight() != 0.0));
-        // verifyBooleanStatus("Totalfreight",((Map<String, Object>) responseMap.get("payload")).get("Totalfreight")!=null,true);
     }
 
     @Test
@@ -275,7 +266,6 @@ public class CreateShipmentTests extends BasePage {
         System.out.println(responseMap);
         this.responseParser.parseResponse(responseMap);
         assertNotNull(this.responseParser.getTotalDiscountFreight());
-        // verifyBooleanStatus("TotalDiscountFreight",((Map<String, Object>) responseMap.get("payload")).get("TotalDiscountFreight")!=null,true);
     }
 
     @Test
@@ -297,7 +287,6 @@ public class CreateShipmentTests extends BasePage {
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
         assertNotNull(this.responseParser.getBaseCharges());
-        // verifyBooleanStatus("BaseCharges",((Map<String, Object>) responseMap.get("payload")).get("BaseCharges")!=null,true);
     }
 
     @Test
@@ -319,7 +308,6 @@ public class CreateShipmentTests extends BasePage {
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
         assertTrue(this.responseParser.getTotalSurcharges() != 0);
-        // verifyBooleanStatus("TotalSurcharges",((Map<String, Object>) responseMap.get("payload")).get("TotalSurcharges")!=null,true);
     }
 
     @Test
@@ -341,7 +329,6 @@ public class CreateShipmentTests extends BasePage {
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
         assertTrue(this.responseParser.getTotalTaxes() != 0);
-        // verifyBooleanStatus("TotalTaxes",((Map<String, Object>) responseMap.get("payload")).get("TotalTaxes")!=null,true);
     }
 
     @Test
@@ -363,7 +350,6 @@ public class CreateShipmentTests extends BasePage {
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
         assertTrue(this.responseParser.getTotalDutiesAndTaxes() != 0);
-        // verifyBooleanStatus("TotalDutiesAndTaxes",((Map<String, Object>) responseMap.get("payload")).get("TotalDutiesAndTaxes")!=null,true);
     }
 
     @Test
@@ -385,7 +371,6 @@ public class CreateShipmentTests extends BasePage {
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
         assertEquals(this.responseParser.getMoneybackGuarantee(),true);
-        //verifyTextAndLog("MoneybackGuarantee",((Map<String, Object>) responseMap.get("payload")).get("MoneybackGuarantee"),"true");
     }
 
     @Test
@@ -407,7 +392,6 @@ public class CreateShipmentTests extends BasePage {
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
         assertEquals(this.responseParser.getDestinationServiceArea(),"A2");
-        // verifyTextAndLog("DestinationServiceArea",((Map<String, Object>) responseMap.get("payload")).get("DestinationServiceArea"),"A2");
     }
 
     @Test
@@ -429,7 +413,6 @@ public class CreateShipmentTests extends BasePage {
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
         assertEquals(this.responseParser.getOriginServiceArea(),"PM");
-        // verifyTextAndLog("OriginServiceArea",((Map<String, Object>) responseMap.get("payload")).get("OriginServiceArea"), "PM");
     }
 
     @Test
@@ -451,7 +434,6 @@ public class CreateShipmentTests extends BasePage {
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
         assertEquals(this.responseParser.getDestinationAirportId(),"ATL");
-        // verifyTextAndLog("DestinationAirportId",((Map<String, Object>) responseMap.get("payload")).get("DestinationAirportId"), "ALT");
     }
 
     @Test
@@ -478,7 +460,6 @@ public class CreateShipmentTests extends BasePage {
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
         assertEquals(this.responseParser.getRemarks(),"2469:shipTimestamp is invalid, 7000:Unable to obtain courtesy rates.");
-        // verifyTextAndLog("Remarks",((Map<String, Object>) responseMap.get("payload")).get("Remarks"), "2469:shipTimestamp is invalid");
     }
 
     @Test

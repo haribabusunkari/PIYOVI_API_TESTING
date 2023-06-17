@@ -12,6 +12,7 @@ public class FedExConstants {
 
     /* ***********************   PAYLOAD FILES  ***********************************************/
     public static final String CARRIER_SHIPMENT_PAYLOAD = "FedEx/createshipment.json";
+    public static final String CARRIER_SHIPMENT_INTERNATIONAL_PAYLOAD = "FedEx/createInternationalShipment.json";
     public static final String TRACKING_SHIPMENT_PAYLOAD = "FedEx/trackingshipment.json";
     public static final String RATE_REQUEST_PAYLOAD = "FedEx/raterequest.json";
     public static final String CANCEL_SHIPMENTT_PAYLOAD = "FedEx/cancelshipment.json";
