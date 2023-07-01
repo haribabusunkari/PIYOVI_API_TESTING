@@ -2,6 +2,8 @@ package com.piyovi.api.tests.carriers.fedex;
 
 import com.piyovi.common.BasePage;
 import com.piyovi.constants.FedExConstants;
+import com.piyovi.parsers.Packages;
+import com.piyovi.parsers.PiyoviResponseParser;
 import com.piyovi.util.*;
 import io.restassured.RestAssured;
 import io.restassured.common.mapper.TypeRef;
@@ -11,6 +13,8 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.*;
@@ -480,9 +484,12 @@ public class CreateShipmentTests extends BasePage {
         logger.info("Response JSON " + response.asPrettyString());
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
-        ArrayList<Packages> packs = this.responseParser.getPackages();
-        assertNotNull(packs.get(0).getTrackingNumber());
-
+        this.responseParser.processPackages();
+        List<Packages> packs = this.responseParser.getPackagesList();
+        Packages pack = packs.get(0); //Hardcode for Single Package 
+        logger.info("Expected Tracking Number : Not null");
+        logger.info("Actual Tracking Number : " + pack.getTrackingNumber());
+        assertNotNull(pack.getTrackingNumber());
     }
 
     @Test
@@ -499,11 +506,24 @@ public class CreateShipmentTests extends BasePage {
                 .body(payload)
                 .when()
                 .post();
+        
         logger.info("Response JSON " + response.asPrettyString());
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
-        ArrayList<Packages> packs = this.responseParser.getPackages();
-        assertEquals(packs.get(0).getLabel(),"carrier_label_46");
+        this.responseParser.processPackages();
+        List<Packages> packs = this.responseParser.getPackagesList();
+        Packages pack = packs.get(0); //Hardcode for Single Package 
+        ArrayList labels = pack.getLabel();
+        String acutalLabel = "";
+        for (int j = 0; j < labels.size(); j++) {
+        	HashMap<String,String> labelItem = (HashMap<String, String>) labels.get(j);
+        	if(labelItem.containsKey("DocumentType")) {
+        		acutalLabel = labelItem.get("DocumentType");
+        	}
+        }
+        logger.info("Expected Label : " + "carrier_label_46");
+        logger.info("Actual Label : " + acutalLabel);
+        assertEquals(acutalLabel,"carrier_label_46");
     }
 
     @Test
@@ -514,7 +534,7 @@ public class CreateShipmentTests extends BasePage {
         var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
-        payload = jsonHelper.updateJsonValue(payload, "DocumentOptions.Documents[0].DocumentType", "carrier_label_48");
+        payload = jsonHelper.updateJsonValue(payload, "DocumentOptions.Documents[0].DocumentType", "carrier_label_46");
         logger.info("Request Payload " + payload);
         var response = given()
                 .contentType(ContentType.JSON)
@@ -524,8 +544,22 @@ public class CreateShipmentTests extends BasePage {
         logger.info("Response JSON " + response.asPrettyString());
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
-        ArrayList<Packages> packs = this.responseParser.getPackages();
-        assertEquals(packs.get(0).getLabel(),"carrier_label_46");
+        this.responseParser.processPackages();
+        List<Packages> packs = this.responseParser.getPackagesList();
+        Packages pack = packs.get(0); //Hardcode for Single Package 
+        ArrayList labels = pack.getLabel();
+        String acutalLabel = "";
+        for (int j = 0; j < labels.size(); j++) {
+        	HashMap<String,String> labelItem = (HashMap<String, String>) labels.get(j);
+        	if(labelItem.containsKey("DocumentType")) {
+        		acutalLabel = labelItem.get("DocumentType");
+        	}
+        }
+        
+        logger.info("DocTab: False");
+        logger.info("Expected Label : " + "carrier_label_46");
+        logger.info("Actual Label : " + acutalLabel);
+        assertEquals(acutalLabel,"carrier_label_46");
     }
 
     @Test
@@ -548,8 +582,21 @@ public class CreateShipmentTests extends BasePage {
         logger.info("Response JSON " + response.asPrettyString());
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
-        ArrayList<Packages> packs = this.responseParser.getPackages();
-        assertEquals(packs.get(0).getLabel(),"carrier_label_48");
-
+        this.responseParser.processPackages();
+        List<Packages> packs = this.responseParser.getPackagesList();
+        Packages pack = packs.get(0); //Hardcode for Single Package 
+        ArrayList labels = pack.getLabel();
+        String acutalLabel = "";
+        for (int j = 0; j < labels.size(); j++) {
+        	HashMap<String,String> labelItem = (HashMap<String, String>) labels.get(j);
+        	if(labelItem.containsKey("DocumentType")) {
+        		acutalLabel = labelItem.get("DocumentType");
+        	}
+        }
+        
+        logger.info("DocTab: True");
+        logger.info("Expected Label : " + "carrier_label_48");
+        logger.info("Actual Label : " + acutalLabel);
+        assertEquals(acutalLabel,"carrier_label_48");
     }
 }

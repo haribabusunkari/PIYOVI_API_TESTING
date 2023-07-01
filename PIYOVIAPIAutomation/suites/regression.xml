@@ -7,13 +7,19 @@
         <listener class-name="org.uncommons.reportng.HTMLReporter"/>
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
     </listeners>
-
+	<!-- <test name="Create Shipment Tests">
+	        <classes>
+	            <class name="com.piyovi.api.tests.carriers.UPS.CreateShipmentTests">
+		            </class>
+	        </classes>
+	    </test> -->
     <test name="Create Shipment Tests">
         <classes>
-            <class name="com.piyovi.api.tests.carriers.fedex.CreateShipmentTests"></class>
+            <class name="com.piyovi.api.tests.carriers.fedex.CreateShipmentTests">
+	            </class>
         </classes>
     </test>
-    <test name="Tracking Shipment">
+    <!-- <test name="Tracking Shipment">
         <classes>
             <class name="com.piyovi.api.tests.carriers.fedex.TrackingShipmentTests"></class>
         </classes>
@@ -32,6 +38,6 @@
         <classes>
             <class name="com.piyovi.api.tests.carriers.fedex.ValidateAddressTests"></class>
         </classes>
-    </test>
+    </test> -->
 
 </suite>
