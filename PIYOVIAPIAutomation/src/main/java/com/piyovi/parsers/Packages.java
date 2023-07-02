@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class Packages {
 	private String trackingNumber;
+	private String lastMileTrackingNumber; //UPS
 	private double freight;
 	private double discountfrieght;
 	private String package_Id;
@@ -14,6 +15,12 @@ public class Packages {
 	}
 	public void setTrackingNumber(String trackingNumber) {
 		this.trackingNumber = trackingNumber;
+	}
+	public String getLastMileTrackingNumber() {
+		return lastMileTrackingNumber;
+	}
+	public void setLastMileTrackingNumber(String lastMileTrackingNumber) {
+		this.lastMileTrackingNumber = lastMileTrackingNumber;
 	}
 	public double getFreight() {
 		return freight;

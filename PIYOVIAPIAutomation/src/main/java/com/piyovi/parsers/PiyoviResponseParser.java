@@ -22,6 +22,8 @@ public class PiyoviResponseParser {
 	private double totalTaxes;
 	private double totalDutiesAndTaxes;
 	private ArrayList surcharges;
+	private double transportationCharges; //UPS
+	private double serviceOptionsCharges; //UPS
 	private String currencyCode;
 	private String remarks;
 	private boolean moneybackGuarantee;
@@ -29,11 +31,19 @@ public class PiyoviResponseParser {
 	private String originServiceArea;
 	private String destinationAirportId;
 	private Map<String, Object> customProperties;
+	private Map<String, Object> shipmentRateResp;
 	private boolean success;
 	private ArrayList errors;
 	/* Process packages from response packages */
 	private List<Packages> pacakgesList;
+	private ShipmentRate shipmentRateObj;
 	
+	public ShipmentRate getShipmentRate() {
+		return shipmentRateObj;
+	}
+	public void setShipmentRate(ShipmentRate shipmentRateObj) {
+		this.shipmentRateObj = shipmentRateObj;
+	}
 	public List<Packages> getPackagesList() {
 		return pacakgesList;
 	}
@@ -57,6 +67,12 @@ public class PiyoviResponseParser {
 	}
 	public void setOrginalPayloadFromResp(Map<String, Object> orginalPayloadFromResp) {
 		this.orginalPayloadFromResp = orginalPayloadFromResp;
+	}
+	public Map<String, Object> getShipmentRateResp() {
+		return shipmentRateResp;
+	}
+	public void setShipmentRateResp(Map<String, Object> shipmentRate) {
+		this.shipmentRateResp = shipmentRate;
 	}
 	public String getCarrierName() {
 		return carrierName;
@@ -129,6 +145,18 @@ public class PiyoviResponseParser {
 	}
 	public void setSurcharges(ArrayList Surcharges) {
 		this.surcharges = Surcharges;
+	}
+	public void setTransportationCharges(double charges) {
+		this.transportationCharges = charges;
+	}
+	public double getTransportationCharges() {
+		return transportationCharges;
+	}
+	public void setServiceOptionsCharges(double charges) {
+		this.serviceOptionsCharges = charges;
+	}
+	public double getServiceOptionsCharges() {
+		return serviceOptionsCharges;
 	}
 	public String getCurrencyCode() {
 		return currencyCode;
@@ -238,6 +266,12 @@ public class PiyoviResponseParser {
 			 case "Surcharges":
 				 this.setSurcharges((ArrayList)m1.getValue());
 				 break;
+			 case "TransportationCharges":
+				 this.setTransportationCharges(Double.parseDouble(m1.getValue().toString()));
+				 break;
+			 case "ServiceOptionsCharges":
+				 this.setServiceOptionsCharges(Double.parseDouble(m1.getValue().toString()));
+				 break;
 			 case "CurrencyCode":
 				 this.setCurrencyCode(m1.getValue().toString());
 				 break;
@@ -259,6 +293,9 @@ public class PiyoviResponseParser {
 			 case "CustomProperties":
 				 this.setCustomProperties((Map<String, Object>)this.getOrginalPayloadFromResp().get("CustomProperties"));
 				 break;
+			 case "ShipmentRate":
+				 this.setShipmentRateResp((Map<String, Object>)m1.getValue());
+				 break; 
 			 case "Success":
 				 this.setSuccess(Boolean.parseBoolean(m1.getValue().toString()));
 				 break;
@@ -291,9 +328,65 @@ public class PiyoviResponseParser {
 					 case "Label":
 						 packageObj.setLabel((ArrayList)packageEntry.getValue());
 						 break;
+					 case "LastMileTrackingNumber":
+						 packageObj.setLastMileTrackingNumber(packageEntry.getValue().toString());
+						 break;
 					 }
              }
 			 pacakgesList.add(packageObj);
 		}
+	}
+	
+	public void processShipRate() {
+	 this.shipmentRateObj = new ShipmentRate();
+	 for(Map.Entry shipmentRateEntry : this.shipmentRateResp.entrySet()) {
+		 switch(shipmentRateEntry.getKey().toString()) {
+			 case "CarrierName":
+				 shipmentRateObj.setCarrierName(shipmentRateEntry.getValue().toString());
+				 break;
+			 case "ServiceName":
+				 shipmentRateObj.setServiceName(shipmentRateEntry.getValue().toString());
+				 break;
+			 case "ServiceDescription":
+				 shipmentRateObj.setServiceDescription(shipmentRateEntry.getValue().toString());
+				 break;
+			 case "Freight":
+				 shipmentRateObj.setFreight(Double.parseDouble(shipmentRateEntry.getValue().toString()));
+				 break;
+			 case "DiscountFrieght":
+				 shipmentRateObj.setDiscountFrieght(Double.parseDouble(shipmentRateEntry.getValue().toString()));
+				 break;
+			 case "BaseCharge":
+				 shipmentRateObj.setBaseCharge(Double.parseDouble(shipmentRateEntry.getValue().toString()));
+				 break;
+			 case "TotalSurcharges":
+				 shipmentRateObj.setTotalSurcharges(Double.parseDouble(shipmentRateEntry.getValue().toString()));
+				 break;
+			 case "Currencycode":
+				 shipmentRateObj.setCurrencycode(shipmentRateEntry.getValue().toString());
+				 break;
+			 case "EstimatedDelivery":
+				 shipmentRateObj.setEstimatedDelivery(shipmentRateEntry.getValue().toString());
+				 break;
+			 case "Surcharges":
+				 shipmentRateObj.setSurcharges((ArrayList)shipmentRateEntry.getValue());
+				 break;
+			 case "CarrierType":
+				 shipmentRateObj.setCarrierType(shipmentRateEntry.getValue().toString());
+				 break;
+			 case "BillingWeight":
+				 shipmentRateObj.setBillingWeight(shipmentRateEntry.getValue().toString());
+				 break;
+			 case "ServiceOptionsCharges":
+				 shipmentRateObj.setServiceOptionsCharges(Double.parseDouble(shipmentRateEntry.getValue().toString()));
+				 break;
+			 case "TransportationCharges":
+				 shipmentRateObj.setTransportationCharges(Double.parseDouble(shipmentRateEntry.getValue().toString()));
+				 break;
+			 case "MoneybackGuarantee":
+				 shipmentRateObj.setMoneybackGuarantee(Boolean.parseBoolean(shipmentRateEntry.getValue().toString()));
+				 break;
+		 }
+	 }
 	}
 }

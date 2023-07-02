@@ -225,7 +225,7 @@ public class CreateShipmentTests extends BasePage {
         logger.info("Response JSON " + response.asPrettyString());
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
-        assertTrue(this.responseParser.getShipment_Id()!=null);
+        assertTrue(this.responseParser.getMasterTrackingNumber()!=null);
     }
 
     @Test
