@@ -86,6 +86,9 @@
       <classifier>no_aop</classifier>
     </dependency>
     </dependencies>
+    <profiles>
+   <profile>
+      <id>selenium-tests</id>
     <build>
         <pluginManagement>
             <plugins>
@@ -105,11 +108,13 @@
                     <version>2.19.1</version>
                     <configuration>
                         <suiteXmlFiles>
-                            <!--suiteXmlFile>./suites/${suiteXmlFile}</suiteXmlFile>-->
+                            <suiteXmlFile>C:\APITesting\PIYOVI_Latest\PIYOVI_API_TESTING\PIYOVIAPIAutomation\suites\regression.xml</suiteXmlFile>
                         </suiteXmlFiles>
                     </configuration>
                 </plugin>
             </plugins>
         </pluginManagement>
     </build>
+    </profile>
+</profiles>
 </project>
