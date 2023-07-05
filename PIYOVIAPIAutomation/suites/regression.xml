@@ -1,34 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="PIYOVI FEDEX API Tests" allow-return-values="true">
+<suite name="PIYOVI CARRIER API Tests" allow-return-values="true">
 
     <listeners>
         <listener class-name="org.uncommons.reportng.HTMLReporter"/>
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
     </listeners>
-
-    <test name="Create Shipment Tests">
+	<test name="Create Shipment Tests UPS">
+	        <classes>
+	            <class name="com.piyovi.api.tests.carriers.UPS.CreateShipmentTests">
+		            </class>
+	        </classes>
+	    </test>
+    <test name="Create Shipment Tests FedEX">
         <classes>
-            <class name="com.piyovi.api.tests.carriers.fedex.CreateShipmentTests"></class>
+            <class name="com.piyovi.api.tests.carriers.fedex.CreateShipmentTests">
+	            </class>
         </classes>
     </test>
-    <test name="Tracking Shipment">
+    <test name="Tracking Shipment FedEX">
         <classes>
             <class name="com.piyovi.api.tests.carriers.fedex.TrackingShipmentTests"></class>
         </classes>
     </test>
-    <test name="Rate Request">
+    <test name="Rate Request FedEX">
         <classes>
             <class name="com.piyovi.api.tests.carriers.fedex.RateRequestTests"></class>
         </classes>
     </test>
-    <test name="Cancel Shipment">
+    <test name="Cancel Shipment FedEX">
         <classes>
             <class name="com.piyovi.api.tests.carriers.fedex.CancelShipmentTests"></class>
         </classes>
     </test>
-    <test name="Validate Address">
+    <test name="Validate Address FedEX">
         <classes>
             <class name="com.piyovi.api.tests.carriers.fedex.ValidateAddressTests"></class>
         </classes>
