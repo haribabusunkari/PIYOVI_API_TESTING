@@ -5,10 +5,13 @@ import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.piyovi.constants.FedExConstants;
+import com.piyovi.constants.HeadlessConstants;
 import com.piyovi.parsers.PiyoviResponseParser;
 import com.piyovi.util.FileHelper;
 import com.piyovi.util.JSONHelper;
 import com.piyovi.util.PropertyReader;
+import io.restassured.RestAssured;
+import io.restassured.common.mapper.TypeRef;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.testng.ITestContext;
@@ -21,6 +24,9 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 
+import java.io.IOException;
+import java.util.Map;
+
 import static io.restassured.RestAssured.given;
 
 
@@ -29,6 +35,9 @@ public class BasePage {
 	public static ExtentTest logger;
 	public ExtentSparkReporter htmlReporter = null;
 	public PropertyReader propertyReader = new PropertyReader();
+	public static final String carriersPayLoadPath = "PayLoads/Carriers/";
+	public static final String headlessPayLoadPath = "PayLoads/Headless/";
+	public static String authToken = "";
 	
 	@BeforeSuite
 	public void initialization() {
@@ -87,6 +96,19 @@ public class BasePage {
 		} else {
 			logger.fail(expectedValue + " and " + actualValue + " are not same for Test " + testName);
 		}
+	}
+
+	public void generateAuthToken() throws IOException {
+		RestAssured.baseURI = propertyReader.getApplicationProperty("baseURL_Headless") + HeadlessConstants.AUTH_URL;
+		var fileHelper = new FileHelper();
+		var payload = fileHelper.getFile(headlessPayLoadPath + HeadlessConstants.AUTH_PAYLOAD);
+		var jsonHelper = new JSONHelper();
+
+		this.authToken = given()
+				.contentType(ContentType.JSON)
+				.body(payload)
+				.when()
+				.post().then().extract().path("payload.token");
 	}
 			
 	@AfterSuite

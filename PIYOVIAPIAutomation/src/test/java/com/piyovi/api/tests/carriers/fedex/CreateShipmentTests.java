@@ -38,7 +38,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("FedEx API - Test Create Shipment for International Address With WrongArguments", "Verify International Consignee Negative Test");
        
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         /* Update international address*/
@@ -81,7 +81,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("FedEx API - Test Create Shipment for International Address", "Verify International Consignee");
        
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_INTERNATIONAL_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + FedExConstants.CARRIER_SHIPMENT_INTERNATIONAL_PAYLOAD);
         var jsonHelper = new JSONHelper();
         
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -102,7 +102,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("FedEx API - Test Basic Create Shipment", "Basic Test");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
         logger.info("Request Payload " + payload);
@@ -124,7 +124,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("FedEx API - Test Carrier Name", "Verify Expected Carrier Name is returned");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -145,7 +145,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("FedEx API - Test Carrierscac", "Verify Expected Carrierscac is returned");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -166,7 +166,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("FedEx API - Test Currency Code", "Verify Expected Currency Code is returned");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -187,7 +187,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("FedEx API - Test Shipment ID", "Verify Expected Shipment ID is returned");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         String shipmentID = RandomGenerator.getAlphaNumericString(25);
@@ -212,7 +212,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("FedEx API - Test Master Tracking Number not null", "Verify Master Tracking Number not nul");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -233,7 +233,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("FedEx API - Test Total freight not null", "Verify Total freight not nul");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -255,7 +255,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("FedEx API - Test Total Discount Freight not null", "Verify Total Discount Freight not null");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -277,7 +277,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("FedEx API - Test Base Charges not null", "Verify Base Charges not null");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -298,7 +298,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("FedEx API - Test Total Surcharges not null", "Verify Total Surcharges not null");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -319,7 +319,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("FedEx API - Test Total Taxes not null", "Verify Total Taxes not null");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -340,7 +340,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("FedEx API - Test Total Duties and Taxes not null", "Verify Total Duties and Taxes not null");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -361,7 +361,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("FedEx API - Test Money Back Guarantee as True", "Verify Money Back Guarantee as True");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -382,7 +382,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("FedEx API - Test Destination Service Area as Expected", "Verify Destination Service Area as Expected");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -403,7 +403,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("FedEx API - Test Origin Service Area as Expected", "Verify Origin Service Area as Expected");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -424,7 +424,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("FedEx API - Test Destination Airport ID as Expected", "Verify Destination Airport ID as Expected");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -445,7 +445,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("FedEx API - Test Error Message when Ship Date is Past", "Verify Error Message when Ship Date is Past");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         given()
@@ -471,7 +471,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("FedEx API - Test Package Tracking Number is not null", "Verify Package Tracking Number is not null");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -497,7 +497,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("FedEx API - Test Document Type is carrier_label_46", "Verify Document Type is carrier_label_46");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         logger.info("Request Payload " + payload);
@@ -531,7 +531,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("FedEx API - Test Document Type is carrier_label_46 when DocTab is false", "Verify Document Type is carrier_label_46 when DocTab is false");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "DocumentOptions.Documents[0].DocumentType", "carrier_label_46");
@@ -567,7 +567,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("FedEx API - Test Document Type is carrier_label_48 when DocTab is true", "Verify Document Type is carrier_label_48 when DocTab is true");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "DocumentOptions.Documents[0].DocumentType", "carrier_label_48");

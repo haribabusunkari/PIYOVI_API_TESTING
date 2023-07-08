@@ -10,7 +10,7 @@ public class FileHelper {
         var is = Objects.requireNonNull(
                 getClass()
                         .getClassLoader()
-                        .getResourceAsStream("PayLoads/Carriers/" + fileName));
+                        .getResourceAsStream(fileName));
         try {
             return new String(is.readAllBytes());
         } catch (IOException e) {

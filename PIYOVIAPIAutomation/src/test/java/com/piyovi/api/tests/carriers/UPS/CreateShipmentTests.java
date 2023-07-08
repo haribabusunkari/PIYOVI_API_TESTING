@@ -36,7 +36,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("UPS API - Test Basic Create Shipment", "Basic Test");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(UPSConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + UPSConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
         logger.info("Request Payload " + payload);
@@ -60,7 +60,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("UPS API - Test Carrier Name", "Verify Expected Carrier Name is returned");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(UPSConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + UPSConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -83,7 +83,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("UPS API - Test Currency Code", "Verify Expected Currency Code is returned");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(UPSConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + UPSConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -107,7 +107,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("UPS API - Test Shipment ID", "Verify Expected Shipment ID is returned");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(UPSConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + UPSConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         String shipmentID = RandomGenerator.getAlphaNumericString(25);
@@ -134,7 +134,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("UPS API - Test Master Tracking Number not null", "Verify Master Tracking Number not nul");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(UPSConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + UPSConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -157,7 +157,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("UPS API - Test Total freight not null", "Verify Total freight not nul");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(UPSConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + UPSConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -181,7 +181,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("UPS API - Test Total Discount Freight not null", "Verify Total Discount Freight not null");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(UPSConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + UPSConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -205,7 +205,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("UPS API - Test Base Charges not null", "Verify Base Charges not null");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(UPSConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + UPSConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -228,7 +228,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("UPS API - Test Total Surcharges not null", "Verify Total Surcharges not null");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(UPSConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + UPSConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -251,7 +251,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("UPS API - Test Transportation Charges is not null", "Verify Transportation Charges is not null");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(UPSConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + UPSConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -274,7 +274,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("UPS API - Test Service Options Charges is not null", "Verify Service Options Charges is not null");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(UPSConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + UPSConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -297,7 +297,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("UPS API - Test Money Back Guarantee as True", "Verify Money Back Guarantee as True");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(UPSConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + UPSConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -320,7 +320,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("UPS API - Test Package Tracking Number is not null", "Verify Package Tracking Number is not null");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -346,7 +346,7 @@ public class CreateShipmentTests extends BasePage {
         logger = extent.createTest("UPS API - Test Shipment Rate", "Verify Shipment Rate");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + FedExConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
