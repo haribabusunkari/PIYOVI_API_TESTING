@@ -32,6 +32,7 @@ public class PiyoviResponseParser {
 	private String destinationAirportId;
 	private Map<String, Object> customProperties;
 	private Map<String, Object> shipmentRateResp;
+	private ArrayList rateResp;
 	private boolean success;
 	private ArrayList errors;
 	/* Process packages from response packages */
@@ -43,6 +44,12 @@ public class PiyoviResponseParser {
 	}
 	public void setShipmentRate(ShipmentRate shipmentRateObj) {
 		this.shipmentRateObj = shipmentRateObj;
+	}
+	public ArrayList getRatesResp() {
+		return rateResp;
+	}
+	public void setRatesResp(ArrayList orginalRatesFromResp) {
+		this.rateResp = orginalRatesFromResp;
 	}
 	public List<Packages> getPackagesList() {
 		return pacakgesList;
@@ -295,7 +302,10 @@ public class PiyoviResponseParser {
 				 break;
 			 case "ShipmentRate":
 				 this.setShipmentRateResp((Map<String, Object>)m1.getValue());
-				 break; 
+				 break;
+			 case "Rates":
+				 this.setRatesResp((ArrayList)m1.getValue());
+				 break;
 			 case "Success":
 				 this.setSuccess(Boolean.parseBoolean(m1.getValue().toString()));
 				 break;
