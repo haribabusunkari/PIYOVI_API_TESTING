@@ -3,13 +3,12 @@ PIYOVIAPIAutomation/.classpath
 PIYOVIAPIAutomation/.project
 *.prefs
 *.log
-PIYOVIAPIAutomation/target/test-classes/PayLoads/Carriers/FedEx/createshipmentold.json
+PIYOVIAPIAutomation/target/test-
 *.xml
 *.html
 *.properties
 *.js
 *.png
-*.json
 *.class
 *.lst
 *.css
