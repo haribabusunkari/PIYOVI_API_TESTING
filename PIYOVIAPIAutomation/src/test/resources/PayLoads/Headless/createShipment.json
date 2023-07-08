@@ -1,0 +1,66 @@
+{
+  "client": "piyovi",
+  "action": "ship",
+  "integration": "My ERP",
+  "referenceType": "D",
+  "referenceNumber": "$runTimeValue",
+  "location": "NASP",
+  "shipDate": "2023-06-15T15:38:36.228-05:00",
+  "user": "",
+  "shipTo": {
+    "companyName": "CHICKAMAUGA TELEPHONE CORP",
+    "contactName": "S",
+    "emailAddress" : "no-replyptsupply",
+    "phoneNumber1": "99999999999999999999999",
+    "address1": "CORPORATE OFFICE 12 N 3RD ST",
+    "city": "BAY SPRINGS",
+    "stateProvince": "MS",
+    "country": "US",
+    "zipPostalCode": "39565"
+  },
+  "parties": [
+    {
+      "companyName": "CHICKAMAUGA TELEPHONE CORP",
+      "contactName": "Pete McLoughlin",
+      "emailAddress": "pete.mcloughlin@ptsupply.com",
+      "phoneNumber1": "9018663300",
+      "address1": "CORPORATE OFFICE",
+      "address2": "12 N 3RD ST",
+      "area": "",
+      "city": "BAY SPRINGS",
+      "stateProvince": "MS",
+      "country": "",
+      "zipPostalCode": "",
+      "vatorTax": "0",
+      "vatorTaxType": "",
+      "vatorTaxTypeCountryCode": "",
+      "party": ""
+    }
+  ],
+  "packages": [
+    {
+      "referenceId": "C001993999",
+      "weight": "100",
+      "length": "10",
+      "width": "10",
+      "height": "10",
+      "freightClass": "0",
+      "dg": "false",
+      "type": "box",
+      "count": 1,
+      "Items" : []
+    }
+  ],
+  "shipmentInfo": {
+    "shipmentType": "Outbound",
+    "PaymentType": "sender",
+    "ShipMethod": "FED2DAY"
+  },
+  "references": {
+    "CustomerReference": "10140",
+    "PONumber": "TEST123456",
+    "InvoiceNumber": "",
+    "Custom1": "1-007665343-00-1",
+    "Custom2": "ITLABEL02"
+  }
+}
