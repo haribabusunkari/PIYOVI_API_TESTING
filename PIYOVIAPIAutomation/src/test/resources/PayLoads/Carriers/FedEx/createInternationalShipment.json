@@ -1,0 +1,332 @@
+{
+      "Company_Id": "5ae76f4e50a6585a745738c0",
+      "Location_Id": "627c0678193446c492c8dc66",
+      "CompanyCarrier_Id": "6016c3291178d14a41678b49",
+      "Carrier_Id": "5afde69350a65860f841e24d",
+      "TrackingNumber": null,
+      "CarrierEnvironment": "test",
+      "Shipment_Id": "6489eb1f9c61e67b17b8bb9f",
+      "ShipDate": "2023-06-14T21:58:56+00:00",
+      "IntegrationRefName": "Delivery",
+      "IntegrationRefValue": "743743",
+      "CarrierName": "FedEx",
+      "ShipmentType": "Outbound",
+      "CarrierAliasName": "FedEx",
+      "ServiceName": "INTERNATIONAL_ECONOMY",
+      "ServiceAliasName": "FedEx International Economy",
+      "TotalWeight": 20.0,
+      "PackagesCount": 1,
+      "LabelType": "ZPL",
+      "Comments": null,
+      "Shipper": {
+        "Id": null,
+        "Name": "NA Spare Parts",
+        "BusinessName": "NA Spare Parts",
+        "AddressLine1": "1202 Chalet Ln",
+        "AddressLine2": null,
+        "AddressLine3": null,
+        "City": "Harrison",
+        "State": "AR",
+        "Zipcode": "72601",
+        "CountryCode": "US",
+        "Phone": "8002255532",
+        "Email": "test@piyovi.com",
+        "VatorTax": null,
+        "VatorTaxType": null,
+        "VatorTaxTypeCountryCode": null,
+        "AddressType": null
+      },
+      "ShipFrom": {
+        "Id": null,
+        "Name": "NA Spare Parts",
+        "BusinessName": "NA Spare Parts",
+        "AddressLine1": "1202 Chalet Ln",
+        "AddressLine2": null,
+        "AddressLine3": null,
+        "City": "Harrison",
+        "State": "AR",
+        "Zipcode": "72601",
+        "CountryCode": "US",
+        "Phone": "8002255532",
+        "Email": "test@piyovi.com",
+        "VatorTax": null,
+        "VatorTaxType": null,
+        "VatorTaxTypeCountryCode": null,
+        "AddressType": null
+      },
+      "Consignee": {
+        "Id": null,
+        "Name": "test",
+        "BusinessName": "Huerfanos 886",
+        "AddressLine1": "886 Huerfanos",
+        "AddressLine2": "",
+        "AddressLine3": null,
+        "City": "Santiago",
+        "State": "Región Metropolitana",
+        "Zipcode": "8320202",
+        "CountryCode": "CL",
+        "Phone": "1122334455",
+        "Email": null,
+        "VatorTax": null,
+        "VatorTaxType": null,
+        "VatorTaxTypeCountryCode": null,
+        "AddressType": null
+      },
+      "Broker": null,
+      "BillTo": {
+        "Id": null,
+        "Name": "NA Spare Parts",
+        "BusinessName": "NA Spare Parts",
+        "AddressLine1": "1202 Chalet Ln",
+        "AddressLine2": null,
+        "AddressLine3": null,
+        "City": "Harrison",
+        "State": "AR",
+        "Zipcode": "72601",
+        "CountryCode": "US",
+        "Phone": "8002255532",
+        "Email": "test@piyovi.com",
+        "VatorTax": null,
+        "VatorTaxType": null,
+        "VatorTaxTypeCountryCode": null,
+        "AddressType": null
+      },
+      "Packages": [
+        {
+          "TrackingNumber": null,
+          "Package_Id": "PKG_894149397913058450",
+          "Description": null,
+          "Type": "custom",
+          "Weight": {
+            "Value": 20.0,
+            "Units": "lb"
+          },
+          "DeclaredValue": 0.0,
+          "Dimension": {
+            "Width": 10.0,
+            "Height": 10.0,
+            "Length": 10.0,
+            "Units": "in"
+          },
+          "ReferenceFields": null,
+          "PackageItems": [
+            {
+              "Pieces": 20,
+              "ReferenceId": "11",
+              "ItemId": "11",
+              "Description": "laptops",
+              "Weight": {
+                "Value": 0.0,
+                "Units": "lb"
+              },
+              "FreightClass": null,
+              "NmfcCode": null,
+              "NmfcSubCode": null,
+              "IsHazardous": false,
+              "Type": null,
+              "HandlingUnits": 0,
+              "HandlingUnitType": null,
+              "PackageType": null,
+              "PackageCount": null,
+              "PurchaseOrderNumber": null,
+              "LotNumber": null
+            }
+          ],
+          "FreightClass": "60",
+          "NmfcCode": null,
+          "PackageCount": 1,
+          "CustomData": null,
+          "IsDg": false,
+          "DgDetails": [
+            
+          ],
+          "HandlingUnits": 1,
+          "HandlingUnitType": null
+        }
+      ],
+      "SpecialServices": {
+        "SaturdayDelivery": false,
+        "SaturdayPickup": false,
+        "ResidentialDelivery": false,
+        "EmailNotification": false,
+        "SignatureRequired": false,
+        "OneRate": false,
+        "ReturnShipment": false,
+        "DocTab": true,
+        "COD": false,
+        "PickupRequired": false,
+        "OverLength": false
+      },
+      "InternationalInformation": {
+        "Commodities": [
+          {
+            "CommodityCode": null,
+            "NumberOfBoxes": 0,
+            "HtsCode": null,
+            "Description": "laptops",
+            "Quantity": 20,
+            "QuantityUOM": null,
+            "UnitWeight": 1.0,
+            "UnitPrice": 10.0,
+            "CurrencyCode": "USD",
+            "CountryOfOrigin": "US",
+            "ECCN": null,
+            "LicenseNo": null,
+            "PartNumber": "11",
+            "LicenseExpirationDate": null
+          }
+        ],
+        "DeclaredValue": 200.0,
+        "ExportDetail": {
+          "B13AFilingOption": null,
+          "ItnNumber": null,
+          "ExportComplianceStatement": null,
+          "FilingExemptionCode": null,
+          "FilingType": null,
+          "FilingInformation": {
+            
+          },
+          "PermitNumber": null
+        },
+        "ResponsibleParty": {
+          "PartyType": "recipient",
+          "AccountNumber": null,
+          "CountryCode": null,
+          "City": null,
+          "State": null,
+          "Zip": null,
+          "Address1": null,
+          "Address2": null
+        },
+        "BookerSelectOption": false,
+        "ReasonForSale": "SOLD",
+        "IncoTerms": null,
+        "IncoTerms2": null,
+        "ECI": true,
+        "PaperlessNFTA": false,
+        "CustomData": null,
+        "CurrencyCode": "USD"
+      },
+      "CarrierAuthDetails": {
+        "Account_Id": null,
+        "CarrierName": "FedEx",
+        "ServiceName": "INTERNATIONAL_ECONOMY",
+        "AccountNumber": "510087100",
+        "MeterNumber": "119256940",
+        "UserName": "7HcQVVQtRo4pjVUz",
+        "Password": "diVonoPEInjakXtNz1UJtMiZp",
+        "HubId": null,
+        "DistributionCenter": null,
+        "AccountSettings": {
+          "AccountNumber": "510087100",
+          "Username": "7HcQVVQtRo4pjVUz",
+          "Password": "diVonoPEInjakXtNz1UJtMiZp",
+          "MeterNumber": "119256940"
+        }
+      },
+      "PayorDetails": {
+        "PayorType": "sender",
+        "PayorAccount": "510087100",
+        "Payor": {
+          "Id": null,
+          "Name": "NA Spare Parts",
+          "BusinessName": "NA Spare Parts",
+          "AddressLine1": "1202 Chalet Ln",
+          "AddressLine2": null,
+          "AddressLine3": null,
+          "City": "Harrison",
+          "State": "AR",
+          "Zipcode": "72601",
+          "CountryCode": "US",
+          "Phone": "8002255532",
+          "Email": "test@piyovi.com",
+          "VatorTax": null,
+          "VatorTaxType": null,
+          "VatorTaxTypeCountryCode": null,
+          "AddressType": null
+        }
+      },
+      "CurrencyCode": "USD",
+      "CustomProperties": null,
+      "CustomData": {
+        "ETDRequired": true,
+        "CompanyLogo": "https://tmsapidev.piyovi.io/static/company-piyovi.png"
+      },
+      "ReferenceFields": null,
+      "Parties": [
+        {
+          "Party": "shipfrom",
+          "Id": null,
+          "Name": "NA Spare Parts",
+          "BusinessName": "NA Spare Parts",
+          "AddressLine1": "1202 Chalet Ln",
+          "AddressLine2": null,
+          "AddressLine3": null,
+          "City": "Harrison",
+          "State": "AR",
+          "Zipcode": "72601",
+          "CountryCode": "US",
+          "Phone": "8002255532",
+          "Email": "test@piyovi.com",
+          "VatorTax": null,
+          "VatorTaxType": null,
+          "VatorTaxTypeCountryCode": null,
+          "AddressType": null
+        },
+        {
+          "Party": "soldto",
+          "Id": null,
+          "Name": null,
+          "BusinessName": "Huerfanos 886",
+          "AddressLine1": "886 Huerfanos",
+          "AddressLine2": "",
+          "AddressLine3": null,
+          "City": "Santiago",
+          "State": "Región Metropolitana",
+          "Zipcode": "8320202",
+          "CountryCode": "CL",
+          "Phone": null,
+          "Email": null,
+          "VatorTax": null,
+          "VatorTaxType": null,
+          "VatorTaxTypeCountryCode": null,
+          "AddressType": null
+        },
+        {
+          "Party": "billto",
+          "Id": null,
+          "Name": "NA Spare Parts",
+          "BusinessName": "NA Spare Parts",
+          "AddressLine1": "1202 Chalet Ln",
+          "AddressLine2": null,
+          "AddressLine3": null,
+          "City": "Harrison",
+          "State": "AR",
+          "Zipcode": "72601",
+          "CountryCode": "US",
+          "Phone": "8002255532",
+          "Email": "test@piyovi.com",
+          "VatorTax": null,
+          "VatorTaxType": null,
+          "VatorTaxTypeCountryCode": null,
+          "AddressType": null
+        }
+      ],
+      "SpecialInstructions": null,
+      "DocumentOptions": {
+        "Documents": [
+          {
+            "DocumentType": "generic_ps",
+            "DocumentLevel": null,
+            "DocumentFileType": "PDF"
+          },
+          {
+            "DocumentType": "carrier_label_46",
+            "DocumentLevel": null,
+            "DocumentFileType": "PNG"
+          }
+        ]
+      },
+      "AdditionalOptions": null,
+      "DefaultDescription": "Spare Parts"
+    }
