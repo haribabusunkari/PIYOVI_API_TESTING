@@ -11,7 +11,7 @@ public class PiyoviResponseParser {
 	/* Retrieve data from response payload */
 	private ArrayList Packages;
 	private String carrierName;
-	private String carrierscac;
+	private String carrierscac; //Only FedEx
 	private String masterTrackingNumber;
 	private String estimatedDelivery;
 	private String shipment_Id;
@@ -26,6 +26,9 @@ public class PiyoviResponseParser {
 	private double serviceOptionsCharges; //UPS
 	private String currencyCode;
 	private String remarks;
+	private ArrayList shipmentDocumnets; //DHL
+	private double billingWeight; //DHL
+	private double dimensionalWeight; //DHL
 	private boolean moneybackGuarantee;
 	private String destinationServiceArea;
 	private String originServiceArea;
@@ -38,6 +41,25 @@ public class PiyoviResponseParser {
 	/* Process packages from response packages */
 	private List<Packages> pacakgesList;
 	private ShipmentRate shipmentRateObj;
+	
+	public ArrayList getshipmentDocumnets() {
+		return shipmentDocumnets;
+	}
+	public void setshipmentDocumnets(ArrayList docs) {
+		this.shipmentDocumnets =  docs;
+	}
+	public double getBillingWeight() {
+		return billingWeight;
+	}
+	public void setBillingWeight(double value) {
+		this.billingWeight = value;
+	}
+	public double getDimensionalWeight() {
+		return dimensionalWeight;
+	}
+	public void setDimensionalWeight(double value) {
+		this.dimensionalWeight = value;
+	}
 	
 	public ShipmentRate getShipmentRate() {
 		return shipmentRateObj;
@@ -284,6 +306,15 @@ public class PiyoviResponseParser {
 				 break;
 			 case "Remarks":
 				 this.setRemarks(m1.getValue().toString());
+				 break;
+			 case "ShipmentDocuments":
+				 this.setshipmentDocumnets((ArrayList)m1.getValue());
+				 break;
+			 case "BillingWeight":
+				 this.setBillingWeight(Double.parseDouble(m1.getValue().toString()));
+				 break;
+			 case "DimensionalWeight":
+				 this.setBillingWeight(Double.parseDouble(m1.getValue().toString()));
 				 break;
 			 case "MoneybackGuarantee":
 				 this.setMoneybackGuarantee(Boolean.parseBoolean(m1.getValue().toString()));

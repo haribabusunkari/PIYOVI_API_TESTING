@@ -7,7 +7,15 @@
         <listener class-name="org.uncommons.reportng.HTMLReporter"/>
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
     </listeners>
-    <test name="Rate Request UPS">
+    
+    <test name="Create Shipment Tests UPS">
+        <classes>
+            <class name="com.piyovi.api.tests.carriers.DHL.CreateShipmentTests">
+	            </class>
+        </classes>
+	</test>
+	    
+    <!-- <test name="Rate Request UPS">
         <classes>
             <class name="com.piyovi.api.tests.carriers.UPS.RateRequestTests"></class>
         </classes>
@@ -48,5 +56,5 @@
         <classes>
             <class name="com.piyovi.api.tests.carriers.fedex.CancelShipmentTests"></class>
         </classes>
-    </test>
+    </test> -->
 </suite>
