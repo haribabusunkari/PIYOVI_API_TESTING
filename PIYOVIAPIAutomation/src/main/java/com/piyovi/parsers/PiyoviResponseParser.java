@@ -22,6 +22,9 @@ public class PiyoviResponseParser {
 	private double totalTaxes;
 	private double totalDutiesAndTaxes;
 	private ArrayList surcharges;
+	private double totalDiscounts; //ESTES
+	private String quoteId; //ESTES
+	private String proNumber; //ESTES
 	private double transportationCharges; //UPS
 	private double serviceOptionsCharges; //UPS
 	private String currencyCode;
@@ -41,6 +44,25 @@ public class PiyoviResponseParser {
 	/* Process packages from response packages */
 	private List<Packages> pacakgesList;
 	private ShipmentRate shipmentRateObj;
+	
+	public double getTotalDiscounts() {
+		return totalDiscounts;
+	}
+	public void setTotalDiscounts(double value) {
+		this.totalDiscounts = value;
+	}
+	public String getQuoteId() {
+		return quoteId;
+	}
+	public void setQuoteId(String value) {
+		this.quoteId = value;
+	}
+	public String getProNumber() {
+		return proNumber;
+	}
+	public void setProNumber(String value) {
+		this.proNumber = value;
+	}
 	
 	public ArrayList getshipmentDocumnets() {
 		return shipmentDocumnets;
@@ -330,6 +352,15 @@ public class PiyoviResponseParser {
 				 break;
 			 case "CustomProperties":
 				 this.setCustomProperties((Map<String, Object>)this.getOrginalPayloadFromResp().get("CustomProperties"));
+				 break;
+			 case "TotalDiscounts":
+				 this.setTotalDiscounts(Double.parseDouble(m1.getValue().toString()));
+				 break;
+			 case "QuoteId":
+				 this.setQuoteId(m1.getValue().toString());
+				 break;
+			 case "ProNumber":
+				 this.setProNumber(m1.getValue().toString());
 				 break;
 			 case "ShipmentRate":
 				 this.setShipmentRateResp((Map<String, Object>)m1.getValue());
