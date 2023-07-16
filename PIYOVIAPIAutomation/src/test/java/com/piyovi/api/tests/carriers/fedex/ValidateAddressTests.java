@@ -26,7 +26,7 @@ public class ValidateAddressTests extends BasePage {
         logger = extent.createTest("FedEx API - Test Basic Rate Request", "Verify Basic Rate Request");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(FedExConstants.VALIDATE_ADDRESS_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + FedExConstants.VALIDATE_ADDRESS_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         var response = given()

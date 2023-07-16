@@ -26,7 +26,7 @@ public class CancelShipmentTests extends BasePage {
         logger = extent.createTest("FedEx API - Test Basic Cancel Shipment ", "Verify Basic Cancel Shipment");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(FedExConstants.CANCEL_SHIPMENTT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + FedExConstants.CANCEL_SHIPMENTT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         var response = given()

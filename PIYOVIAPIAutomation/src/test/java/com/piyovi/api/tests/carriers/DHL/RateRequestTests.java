@@ -1,8 +1,7 @@
 package com.piyovi.api.tests.carriers.DHL;
 
 import com.piyovi.common.BasePage;
-import com.piyovi.constants.FedExConstants;
-import com.piyovi.constants.UPSConstants;
+import com.piyovi.constants.DHLConstants;
 import com.piyovi.parsers.PiyoviResponseParser;
 import com.piyovi.util.FileHelper;
 import com.piyovi.util.JSONHelper;
@@ -13,7 +12,6 @@ import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import java.io.IOException;
 import java.util.Map;
-
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
@@ -23,15 +21,15 @@ public class RateRequestTests extends BasePage {
 	
     @BeforeClass
     public void initialize() throws IOException {
-        RestAssured.baseURI = propertyReader.getApplicationProperty("baseURI") + UPSConstants.RATE_REQUEST_URL;
+        RestAssured.baseURI = propertyReader.getApplicationProperty("baseURI") + DHLConstants.RATE_REQUEST_URL;
     }
 
     @Test
     public void testRateRequestOK() {
-        logger = extent.createTest("UPS API - Test Basic Rate Request", "Verify Basic Rate Request");
+        logger = extent.createTest("DHL API - Test Basic Rate Request", "Verify Basic Rate Request");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(UPSConstants.RATE_REQUEST_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath+DHLConstants.RATE_REQUEST_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         var response = given()

@@ -275,11 +275,11 @@ public class CreateShipmentTests extends BasePage {
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
         this.responseParser.processShipRate();
-        logger.info("Actual Currency Code in Shipment Rate: " + this.responseParser.getShipmentRate().getCarrierName());
-        logger.info("Actual Currency Code in payload: " + this.responseParser.getCarrierName());
+        logger.info("Actual Carrier Name in Shipment Rate: " + this.responseParser.getShipmentRate().getCarrierName());
+        logger.info("Actual Carrier Name in payload: " + this.responseParser.getCarrierName());
         logger.info("Expected Carrier Name: DHL");
-        assertEquals(this.responseParser.getShipmentRate().getCarrierName(),"UPS");
-        assertEquals(this.responseParser.getCarrierName(),"UPS");
+        assertEquals(this.responseParser.getShipmentRate().getCarrierName(),"DHL");
+        assertEquals(this.responseParser.getCarrierName(),"DHL");
     }
     
     @Test

@@ -28,7 +28,7 @@ public class RateRequestTests extends BasePage {
         logger = extent.createTest("FedEx API - Test Basic Rate Request", "Verify Basic Rate Request");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(FedExConstants.RATE_REQUEST_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath+FedExConstants.RATE_REQUEST_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         var response = given()

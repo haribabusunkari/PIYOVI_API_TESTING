@@ -28,7 +28,7 @@ public class TrackingShipmentTests extends BasePage {
         logger = extent.createTest("FedEx API - Test Basic Tracking Shipment", "Verify Basic Tracking Shipment");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(FedExConstants.TRACKING_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + FedExConstants.TRACKING_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         var response = given()

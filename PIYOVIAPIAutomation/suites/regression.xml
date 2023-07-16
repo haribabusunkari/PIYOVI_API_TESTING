@@ -8,28 +8,33 @@
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
     </listeners>
     
-    <test name="Create Shipment Tests UPS">
+    <test name="Create Shipment Tests DHL">
         <classes>
             <class name="com.piyovi.api.tests.carriers.DHL.CreateShipmentTests">
-	            </class>
+         </class>
         </classes>
 	</test>
-	    
-    <!-- <test name="Rate Request UPS">
+	<test name="Rate Request DHL">
+        <classes>
+            <class name="com.piyovi.api.tests.carriers.DHL.RateRequestTests"></class>
+        </classes>
+    </test>
+     
+    <test name="Rate Request UPS">
         <classes>
             <class name="com.piyovi.api.tests.carriers.UPS.RateRequestTests"></class>
         </classes>
     </test>
 	<test name="Create Shipment Tests UPS">
-	        <classes>
-	            <class name="com.piyovi.api.tests.carriers.UPS.CreateShipmentTests">
-		            </class>
-	        </classes>
-	    </test>
+        <classes>
+            <class name="com.piyovi.api.tests.carriers.UPS.CreateShipmentTests">
+	            </class>
+        </classes>
+	 </test>
     <test name="Create Shipment Tests FedEX">
         <classes>
             <class name="com.piyovi.api.tests.carriers.fedex.CreateShipmentTests">
-	            </class>
+	     </class>
         </classes>
     </test>
     <test name="Tracking Shipment FedEX">
@@ -52,9 +57,9 @@
             <class name="com.piyovi.api.tests.carriers.fedex.ValidateAddressTests"></class>
         </classes>
     </test>
-<test name="Cancel Shipment FedEX">
+	<test name="Cancel Shipment FedEX">
         <classes>
             <class name="com.piyovi.api.tests.carriers.fedex.CancelShipmentTests"></class>
         </classes>
-    </test> -->
+    </test>
 </suite>
