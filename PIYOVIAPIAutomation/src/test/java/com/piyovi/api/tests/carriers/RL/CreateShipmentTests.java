@@ -1,7 +1,7 @@
-package com.piyovi.api.tests.carriers.ESTES;
+package com.piyovi.api.tests.carriers.RL;
 
 import com.piyovi.common.BasePage;
-import com.piyovi.constants.ESTESConstants;
+import com.piyovi.constants.RLConstants;
 import com.piyovi.parsers.Packages;
 import com.piyovi.parsers.PiyoviResponseParser;
 import com.piyovi.util.*;
@@ -26,16 +26,16 @@ public class CreateShipmentTests extends BasePage {
 
     @BeforeClass
     public void initialize() throws IOException {
-        RestAssured.baseURI = propertyReader.getApplicationProperty("baseURI") + ESTESConstants.CARRIER_SHIPMENT_URL;
+        RestAssured.baseURI = propertyReader.getApplicationProperty("baseURI") + RLConstants.CARRIER_SHIPMENT_URL;
         this.shipDate = dttmUtil.getDateTimeInFormat(this.shipDtTmFormat);
     }
     
     @Test
     public void testshipmentDocumentsNotNull() {
-        logger = extent.createTest("ESTES API - Test Shipment Documents are not null", "Verify Shipment Documents are not null");
+        logger = extent.createTest("RL API - Test Shipment Documents are not null", "Verify Shipment Documents are not null");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(carriersPayLoadPath + ESTESConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + RLConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -57,10 +57,10 @@ public class CreateShipmentTests extends BasePage {
     
     @Test
     public void testPackageTrackingNumberNotNull() {
-        logger = extent.createTest("ESTES API - Test Package Tracking Number is not null", "Verify Package Tracking Number is not null");
+        logger = extent.createTest("RL API - Test Package Tracking Number is not null", "Verify Package Tracking Number is not null");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(carriersPayLoadPath + ESTESConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + RLConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -84,10 +84,10 @@ public class CreateShipmentTests extends BasePage {
     
     @Test
     public void testTotalfreightNotNull() {
-        logger = extent.createTest("ESTES API - Test Total freight not null", "Verify Total freight not nul");
+        logger = extent.createTest("RL API - Test Total freight not null", "Verify Total freight not nul");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(carriersPayLoadPath + ESTESConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + RLConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -108,10 +108,10 @@ public class CreateShipmentTests extends BasePage {
 
     @Test
     public void testTotalDiscountFreightNotNull() {
-        logger = extent.createTest("ESTES API - Test Total Discount Freight not null", "Verify Total Discount Freight not null");
+        logger = extent.createTest("RL API - Test Total Discount Freight not null", "Verify Total Discount Freight not null");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(carriersPayLoadPath + ESTESConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + RLConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -132,10 +132,10 @@ public class CreateShipmentTests extends BasePage {
     
     @Test
     public void testTotalDiscountNotNull() {
-        logger = extent.createTest("ESTES API - Test Total Discount not null", "Verify Total Discount not null");
+        logger = extent.createTest("RL API - Test Total Discount not null", "Verify Total Discount not null");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(carriersPayLoadPath + ESTESConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + RLConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -156,10 +156,10 @@ public class CreateShipmentTests extends BasePage {
     
     @Test
     public void testQuoteIDNotNull() {
-        logger = extent.createTest("ESTES API - Test Quote ID not null", "Verify Quote ID  not null");
+        logger = extent.createTest("RL API - Test Quote ID not null", "Verify Quote ID  not null");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(carriersPayLoadPath + ESTESConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + RLConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -180,10 +180,10 @@ public class CreateShipmentTests extends BasePage {
     
     @Test
     public void testProNumberNotNull() {
-        logger = extent.createTest("ESTES API - Test Pro Number not null", "Verify Pro Number not null");
+        logger = extent.createTest("RL API - Test Pro Number not null", "Verify Pro Number not null");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(carriersPayLoadPath + ESTESConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + RLConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -204,10 +204,10 @@ public class CreateShipmentTests extends BasePage {
     
     @Test
     public void testMasterTrackingNumberNotNull() {
-        logger = extent.createTest("ESTES API - Test Master Tracking Number not null", "Verify Master Tracking Number not nul");
+        logger = extent.createTest("RL API - Test Master Tracking Number not null", "Verify Master Tracking Number not nul");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(carriersPayLoadPath + ESTESConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + RLConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -227,10 +227,10 @@ public class CreateShipmentTests extends BasePage {
     
     @Test
     public void testShipmentId() {
-        logger = extent.createTest("ESTES API - Test Shipment ID", "Verify Expected Shipment ID is returned");
+        logger = extent.createTest("RL API - Test Shipment ID", "Verify Expected Shipment ID is returned");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(carriersPayLoadPath + ESTESConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + RLConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         String shipmentID = RandomGenerator.getAlphaNumericString(25);
@@ -254,10 +254,10 @@ public class CreateShipmentTests extends BasePage {
     
     @Test
     public void testCarrierName() {
-        logger = extent.createTest("ESTES API - Test Carrier Name", "Verify Expected Carrier Name is returned");
+        logger = extent.createTest("RL API - Test Carrier Name", "Verify Expected Carrier Name is returned");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(carriersPayLoadPath + ESTESConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + RLConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -271,16 +271,16 @@ public class CreateShipmentTests extends BasePage {
         var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
         this.responseParser.parseResponse(responseMap);
         logger.info("Actual Carrier Name: " + this.responseParser.getCarrierName());
-        logger.info("Expected Carrier Name: DHL");
-        assertEquals(this.responseParser.getCarrierName(),"ESTES");
+        logger.info("Expected Carrier Name: RL");
+        assertEquals(this.responseParser.getCarrierName(),"RL");
     }
     
     @Test
     public void testBaseChargesNotNull() {
-        logger = extent.createTest("ESTES API - Test Base Charges not null", "Verify Base Charges not null");
+        logger = extent.createTest("RL API - Test Base Charges not null", "Verify Base Charges not null");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(carriersPayLoadPath + ESTESConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + RLConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -300,10 +300,10 @@ public class CreateShipmentTests extends BasePage {
 
     @Test
     public void testTotalSurchargesNotNull() {
-        logger = extent.createTest("ESTES API - Test Total Surcharges not null", "Verify Total Surcharges not null");
+        logger = extent.createTest("RL API - Test Total Surcharges not null", "Verify Total Surcharges not null");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(carriersPayLoadPath + ESTESConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + RLConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
@@ -323,10 +323,10 @@ public class CreateShipmentTests extends BasePage {
     
     @Test
     public void testCreateShipmentOK() {
-        logger = extent.createTest("ESTES API - Test Basic Create Shipment", "Basic Test");
+        logger = extent.createTest("RL API - Test Basic Create Shipment", "Basic Test");
 
         var fileHelper = new FileHelper();
-        var payload = fileHelper.getFile(carriersPayLoadPath + ESTESConstants.CARRIER_SHIPMENT_PAYLOAD);
+        var payload = fileHelper.getFile(carriersPayLoadPath + RLConstants.CARRIER_SHIPMENT_PAYLOAD);
         var jsonHelper = new JSONHelper();
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
         logger.info("Request Payload " + payload);

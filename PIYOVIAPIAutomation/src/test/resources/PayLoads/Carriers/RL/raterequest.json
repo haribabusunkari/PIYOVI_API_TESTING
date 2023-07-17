@@ -1,0 +1,298 @@
+{
+  "Company_Id": "5ae76f4e50a6585a745738c0",
+  "Location_Id": "627c0678193446c492c8dc66",
+  "CompanyCarrier_Id": "639c60dd1866cbf166b948ab",
+  "Carrier_Id": "639c58fc19d0fe193d917c5a",
+  "TrackingNumber": null,
+  "CarrierEnvironment": "test",
+  "Shipment_Id": "64aebb1570004de4234226fa",
+  "ShipDate": "2023-07-12T20:07:59+00:00",
+  "IntegrationRefName": null,
+  "IntegrationRefValue": null,
+  "CarrierName": "RL",
+  "ShipmentType": "Outbound",
+  "CarrierAliasName": "RL",
+  "ServiceName": "STD",
+  "ServiceAliasName": "Standard",
+  "TotalWeight": 300.0,
+  "PackagesCount": 1,
+  "LabelType": "PDF",
+  "Comments": null,
+  "Shipper": {
+    "Id": null,
+    "Name": "NA Spare Parts",
+    "BusinessName": "NA Spare Parts",
+    "AddressLine1": "1202 Chalet Ln",
+    "AddressLine2": null,
+    "AddressLine3": null,
+    "City": "Harrison",
+    "State": "AR",
+    "Zipcode": "72601",
+    "CountryCode": "US",
+    "Phone": "8002255532",
+    "Email": "test@piyovi.com",
+    "VatorTax": null,
+    "VatorTaxType": null,
+    "VatorTaxTypeCountryCode": null,
+    "AddressType": null
+  },
+  "ShipFrom": {
+    "Id": null,
+    "Name": "NA Spare Parts",
+    "BusinessName": "NA Spare Parts",
+    "AddressLine1": "1202 Chalet Ln",
+    "AddressLine2": null,
+    "AddressLine3": null,
+    "City": "Harrison",
+    "State": "AR",
+    "Zipcode": "72601",
+    "CountryCode": "US",
+    "Phone": "8002255532",
+    "Email": "test@piyovi.com",
+    "VatorTax": null,
+    "VatorTaxType": null,
+    "VatorTaxTypeCountryCode": null,
+    "AddressType": null
+  },
+  "Consignee": {
+    "Id": null,
+    "Name": "Adithya",
+    "BusinessName": "6671 Southwest Fwy",
+    "AddressLine1": "6671 Southwest Fwy",
+    "AddressLine2": "",
+    "AddressLine3": null,
+    "City": "Houston",
+    "State": "TX",
+    "Zipcode": "77074",
+    "CountryCode": "US",
+    "Phone": "1122334455",
+    "Email": null,
+    "VatorTax": null,
+    "VatorTaxType": null,
+    "VatorTaxTypeCountryCode": null,
+    "AddressType": null
+  },
+  "Broker": null,
+  "BillTo": {
+    "Id": null,
+    "Name": "NA Spare Parts",
+    "BusinessName": "NA Spare Parts",
+    "AddressLine1": "1202 Chalet Ln",
+    "AddressLine2": null,
+    "AddressLine3": null,
+    "City": "Harrison",
+    "State": "AR",
+    "Zipcode": "72601",
+    "CountryCode": "US",
+    "Phone": "8002255532",
+    "Email": "test@piyovi.com",
+    "VatorTax": null,
+    "VatorTaxType": null,
+    "VatorTaxTypeCountryCode": null,
+    "AddressType": null
+  },
+  "Packages": [
+    {
+      "TrackingNumber": null,
+      "Package_Id": "PKG_515037550564152184",
+      "Description": null,
+      "Type": "Box",
+      "Weight": {
+        "Value": 300.0,
+        "Units": "lb"
+      },
+      "DeclaredValue": 0.0,
+      "Dimension": {
+        "Width": 30.0,
+        "Height": 30.0,
+        "Length": 30.0,
+        "Units": "in"
+      },
+      "ReferenceFields": null,
+      "PackageItems": [
+        {
+          "Pieces": 40,
+          "ReferenceId": "22",
+          "ItemId": "22",
+          "Description": "bolts",
+          "Weight": {
+            "Value": 0.0,
+            "Units": "lb"
+          },
+          "FreightClass": null,
+          "NmfcCode": null,
+          "NmfcSubCode": null,
+          "IsHazardous": false,
+          "Type": null,
+          "HandlingUnits": 0,
+          "HandlingUnitType": null,
+          "PackageType": null,
+          "PackageCount": null,
+          "PurchaseOrderNumber": null,
+          "LotNumber": null
+        }
+      ],
+      "FreightClass": "70",
+      "NmfcCode": null,
+      "PackageCount": 1,
+      "CustomData": null,
+      "IsDg": false,
+      "DgDetails": [
+        
+      ],
+      "HandlingUnits": 1,
+      "HandlingUnitType": "Box"
+    }
+  ],
+  "SpecialServices": {
+    "AirportDelivery": false,
+    "AirportPickup": false,
+    "AppointmentDelivery": false,
+    "DocTab": false,
+    "HazardousMaterials": false,
+    "InsideDelivery": false,
+    "InsidePickup": false,
+    "LiftGateDelivery": false,
+    "LiftGatePickup": false,
+    "LimitedAccessDelivery": false,
+    "LimitedAccessPickup": false,
+    "ResidentialDelivery": false,
+    "ResidentialPickup": false,
+    "COD": false,
+    "PickupRequired": false,
+    "OverLength": false
+  },
+  "InternationalInformation": null,
+  "CarrierAuthDetails": {
+    "Account_Id": null,
+    "CarrierName": "RL",
+    "ServiceName": "STD",
+    "AccountNumber": "3149501",
+    "MeterNumber": null,
+    "UserName": null,
+    "Password": "notneeded",
+    "HubId": null,
+    "DistributionCenter": null,
+    "AccountSettings": {
+      "AccountNumber": "3149501",
+      "UserName": "notneeded",
+      "Password": "notneeded",
+      "AccessKey": "ItO0YzFzIxZ1Q0MWQtZWNlZi00MDVkLTgxYzNGNiQlMzMTkTC"
+    }
+  },
+  "PayorDetails": {
+    "PayorType": "sender",
+    "PayorAccount": "3149501",
+    "Payor": {
+      "Id": null,
+      "Name": "NA Spare Parts",
+      "BusinessName": "NA Spare Parts",
+      "AddressLine1": "1202 Chalet Ln",
+      "AddressLine2": null,
+      "AddressLine3": null,
+      "City": "Harrison",
+      "State": "AR",
+      "Zipcode": "72601",
+      "CountryCode": "US",
+      "Phone": "8002255532",
+      "Email": "test@piyovi.com",
+      "VatorTax": null,
+      "VatorTaxType": null,
+      "VatorTaxTypeCountryCode": null,
+      "AddressType": null
+    }
+  },
+  "CurrencyCode": "USD",
+  "CustomProperties": null,
+  "CustomData": {
+    "ETDRequired": true,
+    "CompanyLogo": "https://tmsapidev.piyovi.io/static/company-piyovi.png"
+  },
+  "ReferenceFields": null,
+  "Parties": [
+    {
+      "Party": "shipfrom",
+      "Id": null,
+      "Name": "NA Spare Parts",
+      "BusinessName": "NA Spare Parts",
+      "AddressLine1": "1202 Chalet Ln",
+      "AddressLine2": null,
+      "AddressLine3": null,
+      "City": "Harrison",
+      "State": "AR",
+      "Zipcode": "72601",
+      "CountryCode": "US",
+      "Phone": "8002255532",
+      "Email": "test@piyovi.com",
+      "VatorTax": null,
+      "VatorTaxType": null,
+      "VatorTaxTypeCountryCode": null,
+      "AddressType": null
+    },
+    {
+      "Party": "soldto",
+      "Id": null,
+      "Name": null,
+      "BusinessName": "6671 Southwest Fwy",
+      "AddressLine1": "6671 Southwest Fwy",
+      "AddressLine2": "",
+      "AddressLine3": null,
+      "City": "Houston",
+      "State": "TX",
+      "Zipcode": "77074",
+      "CountryCode": "US",
+      "Phone": null,
+      "Email": null,
+      "VatorTax": null,
+      "VatorTaxType": null,
+      "VatorTaxTypeCountryCode": null,
+      "AddressType": null
+    },
+    {
+      "Party": "billto",
+      "Id": null,
+      "Name": "NA Spare Parts",
+      "BusinessName": "NA Spare Parts",
+      "AddressLine1": "1202 Chalet Ln",
+      "AddressLine2": null,
+      "AddressLine3": null,
+      "City": "Harrison",
+      "State": "AR",
+      "Zipcode": "72601",
+      "CountryCode": "US",
+      "Phone": "8002255532",
+      "Email": "test@piyovi.com",
+      "VatorTax": null,
+      "VatorTaxType": null,
+      "VatorTaxTypeCountryCode": null,
+      "AddressType": null
+    }
+  ],
+  "SpecialInstructions": null,
+  "DocumentOptions": {
+    "Documents": [
+      {
+        "DocumentType": "generic_bol",
+        "DocumentLevel": null,
+        "DocumentFileType": "PDF"
+      },
+      {
+        "DocumentType": "generic_label_46",
+        "DocumentLevel": null,
+        "DocumentFileType": "ZPL"
+      },
+      {
+        "DocumentType": "generic_ps",
+        "DocumentLevel": null,
+        "DocumentFileType": "PDF"
+      },
+      {
+        "DocumentType": "generic_masterbol",
+        "DocumentLevel": null,
+        "DocumentFileType": "PDF"
+      }
+    ]
+  },
+  "AdditionalOptions": null,
+  "DefaultDescription": "Spare Parts"
+}
