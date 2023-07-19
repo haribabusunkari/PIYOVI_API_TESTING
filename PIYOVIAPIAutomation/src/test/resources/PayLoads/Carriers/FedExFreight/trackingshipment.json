@@ -1,0 +1,35 @@
+{
+  "carrierEnvironment": "string",
+  "carrierAuthDetails": {
+    "account_Id": "string",
+    "carrierName": "string",
+    "serviceName": "string",
+    "accountNumber": "string",
+    "meterNumber": "string",
+    "userName": "string",
+    "password": "string",
+    "hubId": "string",
+    "distributionCenter": "string",
+    "accountSettings": {
+      "additionalProp1": "string",
+      "additionalProp2": "string",
+      "additionalProp3": "string"
+    }
+  },
+  "requestId": "string",
+  "trackingNumbers": [
+    {
+      "trackingNumber": "string",
+      "packageId": "string",
+      "shipment_Id": "string",
+      "carrier_Id": "string",
+      "podRequired": true,
+      "customProperties": {
+        "additionalProp1": "string",
+        "additionalProp2": "string",
+        "additionalProp3": "string"
+      },
+      "pickupConfirmationNumber": "string"
+    }
+  ]
+}

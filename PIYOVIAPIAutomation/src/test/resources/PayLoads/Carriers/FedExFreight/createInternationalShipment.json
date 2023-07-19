@@ -1,0 +1,351 @@
+{
+  "Company_Id": "5ae76f4e50a6585a745738c0",
+  "Location_Id": "627c0678193446c492c8dc66",
+  "CompanyCarrier_Id": "62994fb0091e7f66d8deee98",
+  "Carrier_Id": "62994eb6b82d83820b0dea5e",
+  "TrackingNumber": null,
+  "CarrierEnvironment": "test",
+  "Shipment_Id": "64a9985f0f5e0b6a1b570b08",
+  "ShipDate": "2023-07-08T22:38:39+00:00",
+  "IntegrationRefName": "Delivery #",
+  "IntegrationRefValue": "743643",
+  "CarrierName": "fedex_freight",
+  "ShipmentType": "Outbound",
+  "CarrierAliasName": "FedEx Freight",
+  "ServiceName": "FEDEX_FREIGHT_PRIORITY",
+  "ServiceAliasName": "FedEx Freight Priority",
+  "TotalWeight": 400.0,
+  "PackagesCount": 1,
+  "LabelType": "ZPL",
+  "Comments": null,
+  "Shipper": {
+    "Id": null,
+    "Name": "NA Spare Parts",
+    "BusinessName": "NA Spare Parts",
+    "AddressLine1": "1202 Chalet Ln",
+    "AddressLine2": null,
+    "AddressLine3": null,
+    "City": "Harrison",
+    "State": "AR",
+    "Zipcode": "72601",
+    "CountryCode": "US",
+    "Phone": "8002255532",
+    "Email": "test@piyovi.com",
+    "VatorTax": null,
+    "VatorTaxType": null,
+    "VatorTaxTypeCountryCode": null,
+    "AddressType": null
+  },
+  "ShipFrom": {
+    "Id": null,
+    "Name": "NA Spare Parts",
+    "BusinessName": "NA Spare Parts",
+    "AddressLine1": "1202 Chalet Ln",
+    "AddressLine2": null,
+    "AddressLine3": null,
+    "City": "Harrison",
+    "State": "AR",
+    "Zipcode": "72601",
+    "CountryCode": "US",
+    "Phone": "8002255532",
+    "Email": "test@piyovi.com",
+    "VatorTax": null,
+    "VatorTaxType": null,
+    "VatorTaxTypeCountryCode": null,
+    "AddressType": null
+  },
+  "Consignee": {
+    "Id": null,
+    "Name": "Adithya",
+    "BusinessName": "445 Hurricane Trail",
+    "AddressLine1": "445 Hurricane Trail",
+    "AddressLine2": "",
+    "AddressLine3": null,
+    "City": "Dacula",
+    "State": "GA",
+    "Zipcode": "30019",
+    "CountryCode": "US",
+    "Phone": "1122334455",
+    "Email": null,
+    "VatorTax": null,
+    "VatorTaxType": null,
+    "VatorTaxTypeCountryCode": null,
+    "AddressType": null
+  },
+  "Broker": null,
+  "BillTo": {
+    "Id": null,
+    "Name": "NA Spare Parts",
+    "BusinessName": "NA Spare Parts",
+    "AddressLine1": "1202 Chalet Ln",
+    "AddressLine2": null,
+    "AddressLine3": null,
+    "City": "Harrison",
+    "State": "AR",
+    "Zipcode": "72601",
+    "CountryCode": "US",
+    "Phone": "8002255532",
+    "Email": "test@piyovi.com",
+    "VatorTax": null,
+    "VatorTaxType": null,
+    "VatorTaxTypeCountryCode": null,
+    "AddressType": null
+  },
+  "Packages": [
+    {
+      "TrackingNumber": null,
+      "Package_Id": "PKG_388213521337147633",
+      "Description": null,
+      "Type": "Pallet",
+      "Weight": {
+        "Value": 400.0,
+        "Units": "lb"
+      },
+      "DeclaredValue": 0.0,
+      "Dimension": {
+        "Width": 48.0,
+        "Height": 40.0,
+        "Length": 48.0,
+        "Units": "in"
+      },
+      "ReferenceFields": null,
+      "PackageItems": [
+        {
+          "Pieces": 30,
+          "ReferenceId": "21212",
+          "ItemId": "21212",
+          "Description": "Farms",
+          "Weight": {
+            "Value": 0.0,
+            "Units": "lb"
+          },
+          "FreightClass": null,
+          "NmfcCode": null,
+          "NmfcSubCode": null,
+          "IsHazardous": false,
+          "Type": null,
+          "HandlingUnits": 0,
+          "HandlingUnitType": null,
+          "PackageType": null,
+          "PackageCount": null,
+          "PurchaseOrderNumber": null,
+          "LotNumber": null
+        }
+      ],
+      "FreightClass": "125",
+      "NmfcCode": null,
+      "PackageCount": 1,
+      "CustomData": null,
+      "IsDg": false,
+      "DgDetails": [
+        
+      ],
+      "HandlingUnits": 1,
+      "HandlingUnitType": "Pallet"
+    }
+  ],
+  "SpecialServices": {
+    "AppointmentDelivery": false,
+    "DocTab": false,
+    "GuaranteedService": false,
+    "HazardousMaterials": false,
+    "InsideDelivery": false,
+    "InsidePickup": false,
+    "LiftGateDelivery": false,
+    "LiftGatePickup": false,
+    "LimitedAccessDelivery": false,
+    "LimitedAccessPickup": false,
+    "Oversize": false,
+    "ResidentialDelivery": false,
+    "ResidentialPickup": false,
+    "COD": false,
+    "PickupRequired": false,
+    "OverLength": false
+  },
+  "InternationalInformation": {
+        "Commodities": [
+          {
+            "CommodityCode": null,
+            "NumberOfBoxes": 0,
+            "HtsCode": null,
+            "Description": "laptops",
+            "Quantity": 20,
+            "QuantityUOM": null,
+            "UnitWeight": 1.0,
+            "UnitPrice": 10.0,
+            "CurrencyCode": "USD",
+            "CountryOfOrigin": "US",
+            "ECCN": null,
+            "LicenseNo": null,
+            "PartNumber": "11",
+            "LicenseExpirationDate": null
+          }
+        ],
+        "DeclaredValue": 200.0,
+        "ExportDetail": {
+          "B13AFilingOption": null,
+          "ItnNumber": null,
+          "ExportComplianceStatement": null,
+          "FilingExemptionCode": null,
+          "FilingType": null,
+          "FilingInformation": {
+            
+          },
+          "PermitNumber": null
+        },
+        "ResponsibleParty": {
+          "PartyType": "recipient",
+          "AccountNumber": null,
+          "CountryCode": null,
+          "City": null,
+          "State": null,
+          "Zip": null,
+          "Address1": null,
+          "Address2": null
+        },
+  "CarrierAuthDetails": {
+    "Account_Id": null,
+    "CarrierName": "fedex_freight",
+    "ServiceName": "FEDEX_FREIGHT_PRIORITY",
+    "AccountNumber": "510087100",
+    "MeterNumber": "119256940",
+    "UserName": "7HcQVVQtRo4pjVUz",
+    "Password": "diVonoPEInjakXtNz1UJtMiZp",
+    "HubId": null,
+    "DistributionCenter": null,
+    "AccountSettings": {
+      "AccountNumber": "510087100",
+      "Username": "7HcQVVQtRo4pjVUz",
+      "Password": "diVonoPEInjakXtNz1UJtMiZp",
+      "MeterNumber": "119256940",
+      "FreightAccountNumber": "510087020",
+      "FreightShipAddress1": "1202 Chalet Ln",
+      "FreightShipAddress2": "Do Not Delete - Test Account",
+      "FreightShipCity": "Harrison",
+      "FreightShipState": "AR",
+      "FreightShipZipcode": "72601",
+      "FreightShipCountry": "US"
+    }
+  },
+  "PayorDetails": {
+    "PayorType": "sender",
+    "PayorAccount": "510087100",
+    "Payor": {
+      "Id": null,
+      "Name": "NA Spare Parts",
+      "BusinessName": "NA Spare Parts",
+      "AddressLine1": "1202 Chalet Ln",
+      "AddressLine2": null,
+      "AddressLine3": null,
+      "City": "Harrison",
+      "State": "AR",
+      "Zipcode": "72601",
+      "CountryCode": "US",
+      "Phone": "8002255532",
+      "Email": "test@piyovi.com",
+      "VatorTax": null,
+      "VatorTaxType": null,
+      "VatorTaxTypeCountryCode": null,
+      "AddressType": null
+    }
+  },
+  "CurrencyCode": "USD",
+  "CustomProperties": null,
+  "CustomData": {
+    "ETDRequired": true,
+    "CompanyLogo": "https://tmsapidev.piyovi.io/static/company-piyovi.png"
+  },
+  "ReferenceFields": null,
+  "Parties": [
+    {
+      "Party": "shipfrom",
+      "Id": null,
+      "Name": "NA Spare Parts",
+      "BusinessName": "NA Spare Parts",
+      "AddressLine1": "1202 Chalet Ln",
+      "AddressLine2": null,
+      "AddressLine3": null,
+      "City": "Harrison",
+      "State": "AR",
+      "Zipcode": "72601",
+      "CountryCode": "US",
+      "Phone": "8002255532",
+      "Email": "test@piyovi.com",
+      "VatorTax": null,
+      "VatorTaxType": null,
+      "VatorTaxTypeCountryCode": null,
+      "AddressType": null
+    },
+    {
+      "Party": "soldto",
+      "Id": null,
+      "Name": null,
+      "BusinessName": "445 Hurricane Trail",
+      "AddressLine1": "445 Hurricane Trail",
+      "AddressLine2": "",
+      "AddressLine3": null,
+      "City": "Dacula",
+      "State": "GA",
+      "Zipcode": "30019",
+      "CountryCode": "US",
+      "Phone": null,
+      "Email": null,
+      "VatorTax": null,
+      "VatorTaxType": null,
+      "VatorTaxTypeCountryCode": null,
+      "AddressType": null
+    },
+    {
+      "Party": "billto",
+      "Id": null,
+      "Name": "NA Spare Parts",
+      "BusinessName": "NA Spare Parts",
+      "AddressLine1": "1202 Chalet Ln",
+      "AddressLine2": null,
+      "AddressLine3": null,
+      "City": "Harrison",
+      "State": "AR",
+      "Zipcode": "72601",
+      "CountryCode": "US",
+      "Phone": "8002255532",
+      "Email": "test@piyovi.com",
+      "VatorTax": null,
+      "VatorTaxType": null,
+      "VatorTaxTypeCountryCode": null,
+      "AddressType": null
+    }
+  ],
+  "SpecialInstructions": null,
+  "DocumentOptions": {
+    "Documents": [
+      {
+        "DocumentType": "carrier_label_48",
+        "DocumentLevel": null,
+        "DocumentFileType": "ZPL"
+      },
+      {
+        "DocumentType": "generic_bol",
+        "DocumentLevel": null,
+        "DocumentFileType": "PDF"
+      },
+      {
+        "DocumentType": "doc_bol",
+        "DocumentLevel": null,
+        "DocumentFileType": "PDF"
+      },
+      {
+        "DocumentType": "generic_ps",
+        "DocumentLevel": null,
+        "DocumentFileType": "PDF"
+      },
+      {
+        "DocumentType": "generic_masterbol",
+        "DocumentLevel": null,
+        "DocumentFileType": "PDF"
+      }
+    ]
+  },
+  "AdditionalOptions": null,
+  "DefaultDescription": "Spare Parts"
+}
+}
