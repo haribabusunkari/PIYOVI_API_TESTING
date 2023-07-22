@@ -4,14 +4,11 @@ import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-import com.piyovi.constants.FedExConstants;
 import com.piyovi.constants.HeadlessConstants;
-import com.piyovi.parsers.PiyoviResponseParser;
 import com.piyovi.util.FileHelper;
 import com.piyovi.util.JSONHelper;
 import com.piyovi.util.PropertyReader;
 import io.restassured.RestAssured;
-import io.restassured.common.mapper.TypeRef;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import org.testng.ITestContext;
@@ -19,16 +16,11 @@ import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
-
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-
 import java.io.IOException;
-import java.util.Map;
-
 import static io.restassured.RestAssured.given;
-
 
 public class BasePage {
 	public static ExtentReports extent;
@@ -44,14 +36,15 @@ public class BasePage {
 		htmlReporter = new ExtentSparkReporter(System.getProperty("user.dir")+"/extentReport.html");
 		extent = new ExtentReports();
 		extent.attachReporter(htmlReporter);
-
-		htmlReporter.config().setDocumentTitle("PITOVI API Automation Report");
-		htmlReporter.config().setReportName("PITOVI API Automation Report");
+		System.out.println("Test Environment : " +  System.getProperty("testEnv"));
+		htmlReporter.config().setDocumentTitle(System.getProperty("testEnv") + "-PITOVI API Automation Report");
+		htmlReporter.config().setReportName(System.getProperty("testEnv") +"-PITOVI API Automation Report");
 		htmlReporter.config().setTheme(Theme.DARK);
 	}
 	
 	@AfterMethod
 	public void methodEnd(ITestResult testResult, ITestContext context) {
+		logger.info("URL : " + RestAssured.baseURI);
 		if(testResult.getStatus() == ITestResult.FAILURE)
 		{
 			logger.log(Status.FAIL, MarkupHelper.createLabel(testResult.getName()+" Test case FAILED due to below issues:", ExtentColor.RED));

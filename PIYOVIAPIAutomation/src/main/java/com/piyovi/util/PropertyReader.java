@@ -12,6 +12,11 @@ public class PropertyReader {
     final String dbPropertyFilePath = System.getProperty("user.dir") + "/properties/db.properties";
 
     public String getApplicationProperty(String key) throws IOException {
+    	if(System.getProperty("testEnv").equalsIgnoreCase("UAT")) {
+    		key = "baseURI_UAT";
+    	}else if(System.getProperty("testEnv").equalsIgnoreCase("DEV")) {
+    		key = "baseURI_DEV";
+    	}
         String value = System.getProperty(key);
         if(null == value || value.isEmpty()) {
             readPropertyFile(this.propertyFilePath);
