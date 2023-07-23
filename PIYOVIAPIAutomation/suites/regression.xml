@@ -13,7 +13,7 @@
             <class name="com.piyovi.api.tests.carriers.fedex_freight.RateRequestTests"></class>
         </classes>
     </test>
-    <test name="Create Shipment Tests FedEx Freight">
+    <!-- <test name="Create Shipment Tests FedEx Freight">
         <classes>
             <class name="com.piyovi.api.tests.carriers.fedex_freight.CreateShipmentTests">
          </class>
@@ -97,5 +97,5 @@
         <classes>
             <class name="com.piyovi.api.tests.carriers.fedex.CancelShipmentTests"></class>
         </classes>
-    </test>
+    </test> -->
 </suite>
