@@ -13,7 +13,7 @@
             <class name="com.piyovi.api.tests.carriers.fedex_freight.RateRequestTests"></class>
         </classes>
     </test>
-    <!-- <test name="Create Shipment Tests FedEx Freight">
+    <test name="Create Shipment Tests FedEx Freight">
         <classes>
             <class name="com.piyovi.api.tests.carriers.fedex_freight.CreateShipmentTests">
          </class>
@@ -26,7 +26,7 @@
          </class>
         </classes>
 	</test>
-	<test name="Rate Request ESTES">
+	<test name="Rate Request RL">
         <classes>
             <class name="com.piyovi.api.tests.carriers.RL.RateRequestTests"></class>
         </classes>
@@ -93,9 +93,9 @@
             <class name="com.piyovi.api.tests.carriers.fedex.ValidateAddressTests"></class>
         </classes>
     </test>
-	<test name="Cancel Shipment FedEX">
+	<test name="Cancel Shipment FedEX1">
         <classes>
             <class name="com.piyovi.api.tests.carriers.fedex.CancelShipmentTests"></class>
         </classes>
-    </test> -->
+    </test>
 </suite>

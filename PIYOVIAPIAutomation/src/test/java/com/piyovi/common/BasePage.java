@@ -5,6 +5,7 @@ import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.piyovi.constants.HeadlessConstants;
+import com.piyovi.util.EmailUtil;
 import com.piyovi.util.FileHelper;
 import com.piyovi.util.JSONHelper;
 import com.piyovi.util.PropertyReader;
@@ -30,9 +31,11 @@ public class BasePage {
 	public static final String carriersPayLoadPath = "PayLoads/Carriers/";
 	public static final String headlessPayLoadPath = "PayLoads/Headless/";
 	public static String authToken = "";
+	public static String env = "";
+	EmailUtil emailUtil = new EmailUtil();
 	
 	@BeforeSuite
-	public void initialization() {
+	public void initialization() throws IOException {
 		htmlReporter = new ExtentSparkReporter(System.getProperty("user.dir")+"/extentReport.html");
 		extent = new ExtentReports();
 		extent.attachReporter(htmlReporter);
@@ -40,6 +43,7 @@ public class BasePage {
 		htmlReporter.config().setDocumentTitle(System.getProperty("testEnv") + "-PITOVI API Automation Report");
 		htmlReporter.config().setReportName(System.getProperty("testEnv") +"-PITOVI API Automation Report");
 		htmlReporter.config().setTheme(Theme.DARK);
+		env = propertyReader.getApplicationProperty("testEnv");
 	}
 	
 	@AfterMethod
@@ -105,7 +109,9 @@ public class BasePage {
 	}
 			
 	@AfterSuite
-	public void closeAll() {
+	public void closeAll() throws InterruptedException, IOException {
 		extent.flush();
+		Thread.sleep(5000);
+		emailUtil.sendEmail();
 	}
 }
