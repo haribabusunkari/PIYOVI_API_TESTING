@@ -19,7 +19,7 @@ public class EmailUtil {
 
     public void sendEmail() throws IOException {
         Email from = new Email("hari@piyovi.com");
-        String subject = "Sending with Twilio SendGrid is Fun";
+        String subject = "PIYOVI Carrier API Automation Report";
         String[] toEmails = {"krishna@piyovi.com"};
         Personalization personalization = new Personalization();
 
@@ -28,7 +28,7 @@ public class EmailUtil {
         }
         String toEmailIDs = "krishna@piyovi.com,hari@piyovi.com,rajesh.sarma@piyovi.com,manasa.madala@piyovi.com,adithya@piyovi.com,sriram.sadineni@piyovi.com,monica@piyovi.com";
         Email to = new Email(toEmailIDs);
-        Content content = new Content("text/plain", "and easy to do anywhere, even with Java");
+        Content content = new Content("text/plain", "Please find attached API Automation Execution Report.");
         Mail mail1 = new Mail(from, subject, to, content);
         Mail mail = EmailUtil.addAttachment(mail1);
         mail.addPersonalization(personalization);
