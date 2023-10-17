@@ -8,6 +8,13 @@
         <listener class-name="org.uncommons.reportng.JUnitXMLReporter"/>
     </listeners>
     
+    <test name="Create Shipment Tests SAIA">
+        <classes>
+            <class name="com.piyovi.api.tests.carriers.SAIA.CreateShipmentTests">
+         </class>
+        </classes>
+	</test>
+	
     <test name="Create Shipment Tests ABF">
         <classes>
             <class name="com.piyovi.api.tests.carriers.ABF.CreateShipmentTests">
