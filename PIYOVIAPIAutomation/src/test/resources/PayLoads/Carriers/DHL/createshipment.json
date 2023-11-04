@@ -9,7 +9,7 @@
   "ShipDate": "2023-07-08T22:29:43+00:00",
   "IntegrationRefName": "Delivery #",
   "IntegrationRefValue": "983443",
-  "C0arrierName": "DHL",
+  "CarrierName": "DHL",
   "ShipmentType": "Outbound",
   "CarrierAliasName": "DHL",
   "ServiceName": "P",
