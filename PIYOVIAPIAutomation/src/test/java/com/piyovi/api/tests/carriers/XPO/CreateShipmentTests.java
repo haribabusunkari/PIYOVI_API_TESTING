@@ -1,18 +1,14 @@
 package com.piyovi.api.tests.carriers.XPO;
 
 import com.piyovi.common.BasePage;
-import com.piyovi.constants.ABFConstants;
-import com.piyovi.constants.DHLConstants;
 import com.piyovi.constants.XPOConstants;
 import com.piyovi.parsers.PiyoviResponseParser;
 import com.piyovi.util.*;
 import io.restassured.RestAssured;
-import io.restassured.common.mapper.TypeRef;
 import io.restassured.http.ContentType;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import java.io.IOException;
-import java.util.Map;
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.*;
 
