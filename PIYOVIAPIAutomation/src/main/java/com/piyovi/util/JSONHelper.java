@@ -65,5 +65,16 @@ public class JSONHelper {
             return json;
         }
     }
+    
+    public String getJsonValue(String json, String jsonKey) {
+        DocumentContext context = getJsonDocumentContext(json);
+        try {
+            var o = read(json, jsonKey);
+            return o.toString();
+        } catch (PathNotFoundException je) {
+            log.warn("{} is couldn't find, in JSON \n{}", jsonKey, json);
+            return json;
+        }
+    }
 
 }
