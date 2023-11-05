@@ -73,7 +73,7 @@ public class JSONHelper {
             return o.toString();
         } catch (PathNotFoundException je) {
             log.warn("{} is couldn't find, in JSON \n{}", jsonKey, json);
-            return json;
+            return null;
         }
     }
 
