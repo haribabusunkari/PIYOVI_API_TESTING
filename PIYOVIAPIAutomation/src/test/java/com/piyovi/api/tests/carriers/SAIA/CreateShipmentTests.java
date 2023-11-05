@@ -5,12 +5,10 @@ import com.piyovi.constants.SAIAConstants;
 import com.piyovi.parsers.PiyoviResponseParser;
 import com.piyovi.util.*;
 import io.restassured.RestAssured;
-import io.restassured.common.mapper.TypeRef;
 import io.restassured.http.ContentType;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import java.io.IOException;
-import java.util.Map;
 import static io.restassured.RestAssured.given;
 import static org.testng.Assert.*;
 
@@ -33,8 +31,10 @@ public class CreateShipmentTests extends BasePage {
 
         var fileHelper = new FileHelper();
         var payload = fileHelper.getFile(carriersPayLoadPath + SAIAConstants.CARRIER_SHIPMENT_PAYLOAD);
+        
         var jsonHelper = new JSONHelper();
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
+        payload = jsonHelper.updateJsonValue(payload, "$.SpecialServices.PickupDetails.PickupDate", this.shipDate);
         logger.info("Request Payload " + payload);
 
         var response = given()
@@ -43,12 +43,14 @@ public class CreateShipmentTests extends BasePage {
                 .when()
                 .post();
         
-        var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
+        /* Read required data from response */
         logger.info("Response JSON " + response.asPrettyString());
-        this.responseParser.parseResponse(responseMap);
-        logger.info("Actual Success: " + this.responseParser.getSuccess());
-        logger.info("Expected Success: True");
-        assertEquals(this.responseParser.getSuccess(),true);
+        boolean actualValue = Boolean.parseBoolean(jsonHelper.getJsonValue(response.asPrettyString(), "$.payload.Success"));
+        logger.info("Actual Success: " + actualValue);
+        logger.info("Expected Success: true");
+        
+        /* Compare actual vs expected */
+        assertEquals(actualValue,true);
     }
     
     @Test
@@ -57,21 +59,26 @@ public class CreateShipmentTests extends BasePage {
 
         var fileHelper = new FileHelper();
         var payload = fileHelper.getFile(carriersPayLoadPath + SAIAConstants.CARRIER_SHIPMENT_PAYLOAD);
+       
         var jsonHelper = new JSONHelper();
-
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
+        payload = jsonHelper.updateJsonValue(payload, "$.SpecialServices.PickupDetails.PickupDate", this.shipDate);
         logger.info("Request Payload " + payload);
+        
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(payload)
                 .when()
                 .post();
+        
+        /* Read required data from response */
         logger.info("Response JSON " + response.asPrettyString());
-        var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
-        this.responseParser.parseResponse(responseMap);
-        logger.info("Actual Master Tracking Number: " + this.responseParser.getMasterTrackingNumber());
+        String actualValue = jsonHelper.getJsonValue(response.asPrettyString(), "$.payload.MasterTrackingNumber");
+        logger.info("Actual Master Tracking Number: " + actualValue);
         logger.info("Expected Master Tracking Number: Not Null");
-        assertTrue(this.responseParser.getMasterTrackingNumber()!=null);
+        
+        /* Compare actual vs expected */
+        assertNotNull(actualValue);
     }
     
     @Test
@@ -80,22 +87,26 @@ public class CreateShipmentTests extends BasePage {
 
         var fileHelper = new FileHelper();
         var payload = fileHelper.getFile(carriersPayLoadPath + SAIAConstants.CARRIER_SHIPMENT_PAYLOAD);
+        
         var jsonHelper = new JSONHelper();
-
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
+        payload = jsonHelper.updateJsonValue(payload, "$.SpecialServices.PickupDetails.PickupDate", this.shipDate);
         logger.info("Request Payload " + payload);
+       
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(payload)
                 .when()
                 .post();
         
+        /* Read required data from response */
         logger.info("Response JSON " + response.asPrettyString());
-        var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
-        this.responseParser.parseResponse(responseMap);
-        logger.info("Actual Carrier Name in payload: " + this.responseParser.getCarrierName());
+        String actualValue = jsonHelper.getJsonValue(response.asPrettyString(), "$.payload.CarrierName");
+        logger.info("Actual Carrier Name in payload: " + actualValue.toUpperCase());
         logger.info("Expected Carrier Name: SAIA");
-        assertEquals(this.responseParser.getCarrierName().toUpperCase(),"SAIA");
+        
+        /* Compare actual vs expected */
+        assertEquals(actualValue.toUpperCase(),"SAIA");
     }
     
     @Test
@@ -104,22 +115,26 @@ public class CreateShipmentTests extends BasePage {
 
         var fileHelper = new FileHelper();
         var payload = fileHelper.getFile(carriersPayLoadPath + SAIAConstants.CARRIER_SHIPMENT_PAYLOAD);
+        
         var jsonHelper = new JSONHelper();
-
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
+        payload = jsonHelper.updateJsonValue(payload, "$.SpecialServices.PickupDetails.PickupDate", this.shipDate);
         logger.info("Request Payload " + payload);
+        
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(payload)
                 .when()
                 .post();
         
+        /* Read required data from response*/
         logger.info("Response JSON " + response.asPrettyString());
-        var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
-        this.responseParser.parseResponse(responseMap);
-        logger.info("Actual Total freight: " + this.responseParser.getTotalfreight());
-        logger.info("Expected Total freight: Not equal to 0.0");
-        assertNotNull((this.responseParser.getTotalfreight()));
+        double actualValue = Double.parseDouble(jsonHelper.getJsonValue(response.asPrettyString(), "$.payload.Totalfreight"));
+        logger.info("Actual Total freight: " + actualValue);
+        logger.info("Expected Total freight: Greater than or equal to Zero (>=0)");
+        
+        /* Compare actual vs expected */
+        assert(actualValue >= 0);
     }
 
     @Test
@@ -128,22 +143,26 @@ public class CreateShipmentTests extends BasePage {
 
         var fileHelper = new FileHelper();
         var payload = fileHelper.getFile(carriersPayLoadPath + SAIAConstants.CARRIER_SHIPMENT_PAYLOAD);
+        
         var jsonHelper = new JSONHelper();
-
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
+        payload = jsonHelper.updateJsonValue(payload, "$.SpecialServices.PickupDetails.PickupDate", this.shipDate);
         logger.info("Request Payload " + payload);
+        
         var response = given()
                 .contentType(ContentType.JSON)
                 .body(payload)
                 .when()
                 .post();
         
+        /* Read required data from response */
         logger.info("Response JSON " + response.asPrettyString());
-        var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
-        this.responseParser.parseResponse(responseMap);
-        logger.info("Actual Total Discount Freight: " + this.responseParser.getTotalDiscountFreight());
-        logger.info("Expected Total Discount Freight: Not Null");
-        assertNotNull(this.responseParser.getTotalDiscountFreight());
+        double actualValue = Double.parseDouble(jsonHelper.getJsonValue(response.asPrettyString(), "$.payload.TotalDiscountFreight"));
+        logger.info("Actual Total Discount Freight: " + actualValue);
+        logger.info("Expected Total Discount Freight: Greater than or equal to Zero (>=0)");
+        
+        /* Compare actual vs expected */
+        assert(actualValue >= 0);
     }
     
     @Test
@@ -152,9 +171,10 @@ public class CreateShipmentTests extends BasePage {
 
         var fileHelper = new FileHelper();
         var payload = fileHelper.getFile(carriersPayLoadPath + SAIAConstants.CARRIER_SHIPMENT_PAYLOAD);
+        
         var jsonHelper = new JSONHelper();
-
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
+        payload = jsonHelper.updateJsonValue(payload, "$.SpecialServices.PickupDetails.PickupDate", this.shipDate);
         logger.info("Request Payload " + payload);
         
         var response = given()
@@ -163,10 +183,14 @@ public class CreateShipmentTests extends BasePage {
                 .when()
                 .post();
         
+        /* Read required data from response */
         logger.info("Response JSON " + response.asPrettyString());
-        var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
-        this.responseParser.parseResponse(responseMap);
-        assertNotNull(this.responseParser.getBaseCharges());
+        double actualValue = Double.parseDouble(jsonHelper.getJsonValue(response.asPrettyString(), "$.payload.BaseCharges"));
+        logger.info("Actual Base Charges: " + actualValue);
+        logger.info("Expected Base Charges: Greater than or equal to Zero (>=0)");
+        
+        /* Compare actual vs expected */
+        assert(actualValue >= 0);
     }
     
     @Test
@@ -175,9 +199,10 @@ public class CreateShipmentTests extends BasePage {
 
         var fileHelper = new FileHelper();
         var payload = fileHelper.getFile(carriersPayLoadPath + SAIAConstants.CARRIER_SHIPMENT_PAYLOAD);
+        
         var jsonHelper = new JSONHelper();
-
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
+        payload = jsonHelper.updateJsonValue(payload, "$.SpecialServices.PickupDetails.PickupDate", this.shipDate);
         logger.info("Request Payload " + payload);
         
         var response = given()
@@ -186,12 +211,14 @@ public class CreateShipmentTests extends BasePage {
                 .when()
                 .post();
         
+        /* Read required data from response */
         logger.info("Response JSON " + response.asPrettyString());
-        var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
-        this.responseParser.parseResponse(responseMap);
-        logger.info("Actual Total Discount : " + this.responseParser.getTotalDiscounts());
-        logger.info("Expected Total Discount : Not Null");
-        assertNotNull(this.responseParser.getTotalDiscounts());
+        double actualValue = Double.parseDouble(jsonHelper.getJsonValue(response.asPrettyString(), "$.payload.TotalDiscounts"));
+        logger.info("Actual Total Discount : " + actualValue);
+        logger.info("Expected Total Discount : Greater than or equal to Zero (>=0)");
+        
+        /* Compare actual vs expected */
+        assert(actualValue >= 0);
     }
     
     @Test
@@ -200,9 +227,10 @@ public class CreateShipmentTests extends BasePage {
 
         var fileHelper = new FileHelper();
         var payload = fileHelper.getFile(carriersPayLoadPath + SAIAConstants.CARRIER_SHIPMENT_PAYLOAD);
+        
         var jsonHelper = new JSONHelper();
-
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
+        payload = jsonHelper.updateJsonValue(payload, "$.SpecialServices.PickupDetails.PickupDate", this.shipDate);
         logger.info("Request Payload " + payload);
         
         var response = given()
@@ -211,10 +239,14 @@ public class CreateShipmentTests extends BasePage {
                 .when()
                 .post();
         
+        /* Read required data from response */
         logger.info("Response JSON " + response.asPrettyString());
-        var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
-        this.responseParser.parseResponse(responseMap);
-        assertNotNull(this.responseParser.getTotalSurcharges());
+        double actualValue = Double.parseDouble(jsonHelper.getJsonValue(response.asPrettyString(), "$.payload.TotalSurcharges"));
+        logger.info("Actual Total Surcharges : " + actualValue);
+        logger.info("Expected Total Surcharges : Greater than or equal to Zero (>=0)");
+        
+        /* Compare actual vs expected */
+        assert(actualValue >= 0);
     }
     
     @Test
@@ -226,6 +258,7 @@ public class CreateShipmentTests extends BasePage {
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
+        payload = jsonHelper.updateJsonValue(payload, "$.SpecialServices.PickupDetails.PickupDate", this.shipDate);
         logger.info("Request Payload " + payload);
         
         var response = given()
@@ -234,12 +267,14 @@ public class CreateShipmentTests extends BasePage {
                 .when()
                 .post();
         
+        /* Read required data from response */
         logger.info("Response JSON " + response.asPrettyString());
-        var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
-        this.responseParser.parseResponse(responseMap);
-        logger.info("Actual Pro Number  : " + this.responseParser.getProNumber());
+        String actualValue = jsonHelper.getJsonValue(response.asPrettyString(), "$.payload.ProNumber");
+        logger.info("Actual Pro Number  : " + actualValue);
         logger.info("Expected Pro Number  : Not Null");
-        assertNotNull(this.responseParser.getProNumber());
+        
+        /* Compare actual vs expected */
+        assertNotNull(actualValue);
     }
     
     @Test
@@ -251,6 +286,7 @@ public class CreateShipmentTests extends BasePage {
         var jsonHelper = new JSONHelper();
 
         payload = jsonHelper.updateJsonValue(payload, "ShipDate", this.shipDate);
+        payload = jsonHelper.updateJsonValue(payload, "$.SpecialServices.PickupDetails.PickupDate", this.shipDate);
         logger.info("Request Payload " + payload);
         
         var response = given()
@@ -259,11 +295,13 @@ public class CreateShipmentTests extends BasePage {
                 .when()
                 .post();
         
+        /* Read required data from response */
         logger.info("Response JSON " + response.asPrettyString());
-        var responseMap = response.as(new TypeRef<Map<String, Object>>() {});
-        this.responseParser.parseResponse(responseMap);
-        logger.info("Actual Quote ID  : " + this.responseParser.getQuoteId());
+        String actualValue = jsonHelper.getJsonValue(response.asPrettyString(), "$.payload.QuoteId");
+        logger.info("Actual Quote ID  : " + actualValue);
         logger.info("Expected Quote ID  : Not Null");
-        assertNotNull(this.responseParser.getQuoteId());
+        
+        /* Compare actual vs expected */
+        assertNotNull(actualValue);
     }
 }
