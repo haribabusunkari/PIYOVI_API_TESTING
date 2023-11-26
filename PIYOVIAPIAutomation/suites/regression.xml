@@ -27,10 +27,22 @@
          </class>
         </classes>
 	</test>
+	<test name="Rate Request Tests SAIA">
+        <classes>
+            <class name="com.piyovi.api.tests.carriers.SAIA.RateRequestTests">
+         </class>
+        </classes>
+	</test>
 	
     <test name="Create Shipment Tests ABF">
         <classes>
             <class name="com.piyovi.api.tests.carriers.ABF.CreateShipmentTests">
+         </class>
+        </classes>
+	</test>
+	<test name="Rate Request Tests ABF">
+        <classes>
+            <class name="com.piyovi.api.tests.carriers.ABF.RateRequestTests">
          </class>
         </classes>
 	</test>
